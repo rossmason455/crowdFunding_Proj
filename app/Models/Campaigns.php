@@ -38,5 +38,10 @@ class Campaigns extends Model
         return $this->hasMany(Perks::class);
     }
 
+
+    public function transactions(){
+        return $this->hasMany(Transactions::class);
+    }
+
 }
 
