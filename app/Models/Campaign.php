@@ -13,6 +13,7 @@ class Campaign extends Model
         'title',
         'description',
         'progress',
+        'goal',
         'solution',
         'start_date',
         'end_date',
