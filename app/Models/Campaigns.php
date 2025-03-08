@@ -28,7 +28,9 @@ class Campaigns extends Model
         return $this->hasMany(User::class);
     }
 
-
+    public function campaignImages(){
+        return $this->hasMany(CampaignImages::class);
+    }
 
 
 }
