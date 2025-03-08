@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CampaignImages extends Model
+class CampaignImage extends Model
 {
     protected $fillable = [
         'image',
@@ -13,7 +13,7 @@ class CampaignImages extends Model
 
 
     public function campaign(){
-        return $this->belongsTo(Campaigns::class);
+        return $this->belongsTo(Campaign::class);
     }
 
 

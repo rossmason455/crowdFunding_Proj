@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Transactions extends Model
+class Transaction extends Model
 {
     protected $fillable = [
         'amount',
@@ -25,7 +25,7 @@ class Transactions extends Model
 
 
     public function campaign(){
-        return $this->belongsTo(Campaigns::class);
+        return $this->belongsTo(Campaign::class);
     }
 
 

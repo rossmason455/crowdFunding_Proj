@@ -5,7 +5,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Campaigns extends Model
+class Campaign extends Model
 {
     // The Campaigns model represents the 'animals' table in the database and defines the fillable attributes for mass assignment.
 
@@ -29,18 +29,18 @@ class Campaigns extends Model
     }
 
     public function campaignImages(){
-        return $this->hasMany(CampaignImages::class);
+        return $this->hasMany(CampaignImage::class);
     }
 
 
 
     public function perks(){
-        return $this->hasMany(Perks::class);
+        return $this->hasMany(Perk::class);
     }
 
 
     public function transactions(){
-        return $this->hasMany(Transactions::class);
+        return $this->hasMany(Transaction::class);
     }
 
 }

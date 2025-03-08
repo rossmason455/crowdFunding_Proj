@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Perks extends Model
+class Perk extends Model
 {
     protected $fillable = [
         'title',
@@ -17,7 +17,7 @@ class Perks extends Model
 
 
     public function campaign(){
-        return $this->belongsTo(Campaigns::class);
+        return $this->belongsTo(Campaign::class);
     }
 
 
