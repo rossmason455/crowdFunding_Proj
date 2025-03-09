@@ -24,15 +24,6 @@ class UserFactory extends Factory
     public function definition(): array
     {
 
-        //$roles = ['crowdfunder', 'investor'];
-        //$role = 'campaigner';
-//
-//
-        //if(rand(1,2)==1){
-        //    $role = 'campaigner';
-        //}else{
-        //    $role = $roles[array_rand($roles)];
-        //}
 
 
 
