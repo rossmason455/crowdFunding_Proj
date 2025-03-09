@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RiskProfile extends Model
+class InvestorProfile extends Model
 {
     protected $fillable = [
         'risk_profile',

@@ -64,8 +64,8 @@ class User extends Authenticatable
     }
 
 
-    public function riskProfile(){
-        return $this->hasOne(RiskProfile::class);
+    public function investorProfile(){
+        return $this->hasOne(InvestorProfile::class);
     }
 
 
