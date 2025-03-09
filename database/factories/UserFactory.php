@@ -42,8 +42,12 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
-            'role' => ['campaigner', 'crowdfunder', 'investor'],
+            'role' => fake()->randomElement(['campaigner', 'crowdfunder', 'investor']),
             'image' => fake()->imageUrl(400, 400, 'people'),
+            'stripe_id' => Str::uuid(), // Simulated Stripe customer ID
+            'pm_type' => fake()->randomElement(['visa', 'mastercard', 'amex']),
+            'pm_last_four' => fake()->numerify('####'),
+            'trial_ends_at' => null
         ];
     }
 
