@@ -11,8 +11,18 @@ class UserSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
     {
-        User::factory(40)->create();
+       
+        User::factory()->count(20)->create([
+            'role' => 'campaigner',
+        ]);
+    
+        
+        User::factory()->count(20)->create([
+            'role' => function () {
+                return array_rand(['crowdfunder' => 'crowdfunder', 'investor' => 'investor']);
+            },
+        ]);
     }
 }

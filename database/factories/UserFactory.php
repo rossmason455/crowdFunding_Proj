@@ -24,15 +24,15 @@ class UserFactory extends Factory
     public function definition(): array
     {
 
-        $roles = ['crowdfunder', 'investor'];
-        $role = 'campaigner';
-
-
-        if(rand(1,2)==1){
-            $role = 'campaigner';
-        }else{
-            $role = $roles[array_rand($roles)];
-        }
+        //$roles = ['crowdfunder', 'investor'];
+        //$role = 'campaigner';
+//
+//
+        //if(rand(1,2)==1){
+        //    $role = 'campaigner';
+        //}else{
+        //    $role = $roles[array_rand($roles)];
+        //}
 
 
 
@@ -44,7 +44,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'role' => fake()->randomElement(['campaigner', 'crowdfunder', 'investor']),
             'image' => fake()->imageUrl(400, 400, 'people'),
-            'stripe_id' => Str::uuid(), // Simulated Stripe customer ID
+            'stripe_id' => Str::uuid(),
             'pm_type' => fake()->randomElement(['visa', 'mastercard', 'amex']),
             'pm_last_four' => fake()->numerify('####'),
             'trial_ends_at' => null
