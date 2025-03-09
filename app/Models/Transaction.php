@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Notifications\Notifiable;
 class Transaction extends Model
 {
+
+    /** @use HasFactory<\Database\Factories\UserFactory> */
+    use HasFactory, Notifiable;
     protected $fillable = [
         'amount',
         'stripe_transaction_id',
