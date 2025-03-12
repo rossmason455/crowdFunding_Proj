@@ -16,6 +16,15 @@ class HomeController extends Controller
         return view('home.index', compact('campaigns'));
     }
 
+
+
+    public function show(Campaign $campaign)
+    {
+
+
+        return view('home.show')->with('campaign', $campaign);
+    }
+
 //
     //public function show(Campaign $campiagn)
     //{

@@ -14,7 +14,7 @@ Route::get('/dashboard', function () {
 
 Route::get('home', [HomeController::class, 'index'])->name('home.index'); 
 
-
+Route::get('/home/{campaign}', [HomeController::class, 'show'])->name('home.show');
 
 
 
