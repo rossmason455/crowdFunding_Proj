@@ -61,6 +61,16 @@
                             </div>
                         </div>
 
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Role</label>
+                            <select id="role" name="role" class="form-select" required>
+                                <option value="crowdfunder" {{ old('role') == 'crowdfunder' ? 'selected' : '' }}>Crowdfunder</option>
+                                <option value="investor" {{ old('role') == 'investor' ? 'selected' : '' }}>Angel Investor</option>
+                                <option value="campaigner" {{ old('role') == 'campaigner' ? 'selected' : '' }}>Campaigner</option>
+                                <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+                            </select>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <a class="btn btn-link" href="{{ route('login') }}">

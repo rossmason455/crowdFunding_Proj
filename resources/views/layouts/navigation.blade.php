@@ -21,6 +21,11 @@
                         {{ Auth::user()->name }}
                     </a>
 
+                    <x-nav-link class="navLinks" :href="route('home.index')"
+                        :active="request()->routeIs('home.index')">
+                        {{ __('Home') }}
+                    </x-nav-link>
+
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('profile.edit') }}">
                             {{ __('Profile') }}

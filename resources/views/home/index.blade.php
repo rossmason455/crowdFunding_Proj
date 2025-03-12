@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 <h3 class="font-weight-semibold h3 mb-4">List of Campaigns:</h3>
 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 g-4">
     @foreach($campaigns as $campaign)
