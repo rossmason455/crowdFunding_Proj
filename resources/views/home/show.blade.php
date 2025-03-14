@@ -21,7 +21,9 @@
                             :competitive_landscape="$campaign->competitive_landscape" :team="$campaign->team"
                             :use_of_funds="$campaign->use_of_funds" :campaign_type="$campaign->campaign_type" />
 
-
+                            <a href="{{ route('home.edit', $campaign->id) }}" class="btn btn-primary">
+                            Edit campaign
+                            </a>
 
 
                     </div>

@@ -21,9 +21,12 @@ Route::get('/home/{campaign}', [HomeController::class, 'show'])->name('home.show
 
 Route::get('/home/create', [HomeController::class, 'create'])->name('home.create');
 
+Route::post('/home', [HomeController::class, 'store'])->name('home.store'); 
 
 Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
-    
+
+Route::put('/home/{campaign}', [HomeController::class, 'update'])->name('home.update');
+                                                                                    //might be campaigns for name in update and store
 
 //Route::post('/home', [HomeController::class, 'store'])->name('home.store'); 
 

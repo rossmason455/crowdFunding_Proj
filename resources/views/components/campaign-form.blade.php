@@ -1,3 +1,6 @@
+@props(['action', 'method','campaign' => null])
+
+
 <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
     @csrf
     @if($method === 'PUT' || $method === 'PATCH')

@@ -44,6 +44,8 @@ class HomeController extends Controller
 
     public function edit(Campaign $campaign)
     {
+        ;
+        
         return view('home.edit', compact('campaign'));
     }
 
