@@ -9,9 +9,15 @@
 
                 <div class="card-body">
                     {{ __("You're logged in!") }}
+
+
+                 
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+
+

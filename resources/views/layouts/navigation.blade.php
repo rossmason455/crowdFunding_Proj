@@ -26,6 +26,11 @@
                         {{ __('Home') }}
                     </x-nav-link>
 
+                    <x-nav-link class="navLinks" :href="route('home.create')"
+                        :active="request()->routeIs('home.create')">
+                        {{ __('Create') }}
+                    </x-nav-link>
+
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('profile.edit') }}">
                             {{ __('Profile') }}
