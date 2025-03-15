@@ -10,7 +10,8 @@
     'team',
     'use_of_funds',
     'campaign_type',
-    'image'
+    'image',
+    'campaign'
 ])
 
 <div class="container mt-4">

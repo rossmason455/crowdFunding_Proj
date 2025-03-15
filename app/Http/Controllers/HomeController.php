@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\InvestorProfile;
 use App\Models\Campaign;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -50,7 +51,7 @@ class HomeController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function storeCampaign(Request $request)
     {
         //ensures the request has the required fields
         $request->validate([
@@ -92,7 +93,7 @@ class HomeController extends Controller
     }
 
 
-    public function update(Request $request, Campaign $campaign)
+    public function updateCampaign(Request $request, Campaign $campaign)
     {
         //ensures the request has the required fields
         $request->validate([
@@ -134,12 +135,82 @@ class HomeController extends Controller
     }
 
 
-    public function destroy(Campaign $campaign)
+    public function destroyCampaign(Campaign $campaign)
     {
         $campaign->delete(); 
 
         return redirect()->route('home.index')->with('success', 'Campaign deleted successfully!');
     }
+
+
+    public function storeInvestorProfile(Request $request)
+    {
+        //ensures the request has the required fields
+        $request->validate([
+             
+        'risk_profile' => 'required|in:low,moderate,high', 
+        'min_investment' => 'required|numeric|min:0', 
+        'max_investment' => 'required|numeric|min:0|gt:min_investment', 
+        'investment_preference' => 'nullable|string|max:255', 
+        'investment_approach' => 'nullable|string|max:255', 
+        'preferred_investment_stage' => 'required|in:early_stage,growth_stage,late_stage', 
+        'investment_interest' => 'nullable|string|max:255', 
+        ]);
+        
+      
+        InvestorProfile::create([
+            'user_id' => auth()->id(),
+            'min_investment' => $request->min_investment,
+            'max_investment' => $request->max_investment,
+            'investment_preference' => $request->investment_preference,
+            'investment_approach' => $request->investment_approach,
+            'preferred_investment_stage' => $request->preferred_investment_stage,
+            'investment_interest' => $request->investment_interest,
+           
+        ]);
+        
+        return redirect()->route('home.index')->with('success', 'Investor Profile created successfully!');
+    }
+
+
+    public function updateInvestorProfile(Request $request, InvestorProfile $investorProfile)
+    {
+        //ensures the request has the required fields
+        $request->validate([
+             
+            'risk_profile' => 'required|in:low,moderate,high', 
+            'min_investment' => 'required|numeric|min:0', 
+            'max_investment' => 'required|numeric|min:0|gt:min_investment', 
+            'investment_preference' => 'nullable|string|max:255', 
+            'investment_approach' => 'nullable|string|max:255', 
+            'preferred_investment_stage' => 'required|in:early_stage,growth_stage,late_stage', 
+            'investment_interest' => 'nullable|string|max:255', 
+        ]);
+        
+    
+      
+        $investorProfile->update([
+            'user_id' => auth()->id(),
+            'min_investment' => $request->min_investment,
+            'max_investment' => $request->max_investment,
+            'investment_preference' => $request->investment_preference,
+            'investment_approach' => $request->investment_approach,
+            'preferred_investment_stage' => $request->preferred_investment_stage,
+            'investment_interest' => $request->investment_interest,
+        ]);
+        
+        return redirect()->route('home.index')->with('success', 'Campaign created successfully!');
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 //
