@@ -134,7 +134,12 @@ class HomeController extends Controller
     }
 
 
+    public function destroy(Campaign $campaign)
+    {
+        $campaign->delete(); 
 
+        return redirect()->route('home.index')->with('success', 'Campaign deleted successfully!');
+    }
 
 
 //

@@ -17,9 +17,16 @@
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
+        @auth
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" 
+               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+            </a>
+        @else
+            <a class="nav-link" href="{{ route('login') }}">Login</a>
+            <a class="nav-link" href="{{ route('register') }}">Register</a>
+        @endauth
+    </li>
 
                     <x-nav-link class="navLinks" :href="route('home.index')"
                         :active="request()->routeIs('home.index')">

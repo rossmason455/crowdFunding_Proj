@@ -1,4 +1,4 @@
-@props(['action', 'method','campaign' => null])
+@props(['action', 'method'])
 
 
 <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
@@ -99,6 +99,16 @@
             <div class="text-danger">{{ $message }}</div>
         @enderror
     </div>
+    <div class="mb-3">
+    <label for="campaign_type" class="form-label">Campaign Type</label>
+    <select name="campaign_type" id="campaign_type" class="form-control" required>
+        <option value="Angel Investment" {{ old('campaign_type', $campaign->campaign_type ?? '') }}>Angel Investment</option>
+        <option value="Crowdfunding" {{ old('campaign_type', $campaign->campaign_type ?? '')}}>Crowdfunding</option>
+    </select>
+    @error('campaign_type')
+        <div class="text-danger">{{ $message }}</div>
+    @enderror
+</div>
 
 
     

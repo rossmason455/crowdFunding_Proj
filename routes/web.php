@@ -26,7 +26,9 @@ Route::post('/home', [HomeController::class, 'store'])->name('home.store');
 Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
 
 Route::put('/home/{campaign}', [HomeController::class, 'update'])->name('home.update');
-                                                                                    //might be campaigns for name in update and store
+                                                                                    
+
+Route::delete('/home/{campaign}', [HomeController::class, 'destroy'])->name('home.destroy');
 
 //Route::post('/home', [HomeController::class, 'store'])->name('home.store'); 
 
