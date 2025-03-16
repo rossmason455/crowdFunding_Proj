@@ -22,25 +22,20 @@ class HomeController extends Controller
 
     public function show(Campaign $campaign)
     {
+        $campaign = Campaign::with('perks')->findOrFail($campaign->id);
 
-
-      return view('home.show')->with('campaign', $campaign);
+        return view('home.show', compact('campaign'));
     }
 
     
     
-    public function create()
-    {
-
-        
-       
-
-
-        return view('home.create');
+ public function create()
+ {
+    return view('create');
+ }
 
 
 
-    }
 
 
     public function edit(Campaign $campaign)
@@ -74,7 +69,7 @@ class HomeController extends Controller
             $request->image->move(public_path('images/banner'), $imageName);
         }
       
-        Campaign::create([
+       $campaign = Campaign::create([
             'user_id' => auth()->id(),
             'title' => $request->title,
             'description' => $request->description,
@@ -86,8 +81,15 @@ class HomeController extends Controller
             'team' => $request->team,
             'use_of_funds' => $request->use_of_funds,
             'campaign_type' => $request->campaign_type,
-            'image' => $imageName ? 'images/banner/' . $imageName : null, 
+            'image' => $imageName 
         ]);
+
+        if ($imageName) {
+            $campaign->campaignImages()->create([
+                'image' => 'images/banner/' . $imageName, 
+            ]);
+        }
+
         
         return redirect()->route('home.index')->with('success', 'Campaign created successfully!');
     }
@@ -128,8 +130,14 @@ class HomeController extends Controller
             'team' => $request->team,
             'use_of_funds' => $request->use_of_funds,
             'campaign_type' => $request->campaign_type,
-            'image' => $imageName ? 'images/banner/' . $imageName : null, 
+            'image' => $imageName 
         ]);
+
+        if ($imageName) {
+            $campaign->campaignImages()->create([
+                'image' => 'images/banner/' . $imageName, 
+            ]);
+        }
         
         return redirect()->route('home.index')->with('success', 'Campaign created successfully!');
     }

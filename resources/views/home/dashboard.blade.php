@@ -33,7 +33,7 @@
                             <button type="submit" class="text-red-600 hover:underline">Delete Campaign</button>
                         </form>
 
-                        @elseif (auth()->user()->role === 'angel_investor' && $investorProfile)
+                        @elseif (auth()->user()->role === 'investor' && $investorProfile)
                         <!-- Display Investor Profile for Investors -->
                         <h3>Investor Profile</h3>
                         <p><strong>Risk Profile:</strong> {{ $investorProfile->risk_profile }}</p>
@@ -46,7 +46,7 @@
 
                     @else
                         <p>You don't have an active campaign please create one </p>
-                        <a href="{{ route('home.create') }}" class="btn btn-primary">Create Campaign</a>
+                        <a href="{{ route('create') }}" class="btn btn-primary">Create Campaign</a>
                     @endif
 
                     </div>

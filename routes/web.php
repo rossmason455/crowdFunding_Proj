@@ -18,16 +18,26 @@ Route::get('/home/dashboard', [DashboardController::class, 'dashboard'])
 Route::get('/home/{campaign}', [HomeController::class, 'show'])->name('home.show');
 
 
-Route::get('/home/create', [HomeController::class, 'create'])->name('home.create');
+Route::get('create', [HomeController::class, 'create'])->name('create');
 
-Route::post('/home', [HomeController::class, 'store'])->name('home.store'); 
+
+Route::get('/test-view', function () {
+    return view('home.test');
+});
+
+
+
+
+Route::get('/home/test', [HomeController::class, 'test'])->name('home.test');
+
+Route::post('/home', [HomeController::class, 'storeCampaign'])->name('home.storeCampaign'); 
 
 Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
 
-Route::put('/home/{campaign}', [HomeController::class, 'update'])->name('home.update');
+Route::put('/home/{campaign}', [HomeController::class, 'updateCampaign'])->name('home.updateCampaign');
                                                                                     
 
-Route::delete('/home/{campaign}', [HomeController::class, 'destroy'])->name('home.destroy');
+Route::delete('/home/{campaign}', [HomeController::class, 'destroyCampaign'])->name('home.destroyCampaign');
 
 //Route::post('/home', [HomeController::class, 'store'])->name('home.store'); 
 

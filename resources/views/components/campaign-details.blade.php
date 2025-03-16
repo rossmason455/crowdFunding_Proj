@@ -11,7 +11,8 @@
     'use_of_funds',
     'campaign_type',
     'image',
-    'campaign'
+    'campaign',
+    'perks'
 ])
 
 <div class="container mt-4">
@@ -70,6 +71,9 @@
 
             <h2 class="h5 mt-3">Campaign Type</h2>
             <p class="card-text">{{ $campaign_type }}</p>
+
+            <h2 class="h5 mt-3">Perks</h2>
+            <p class="card-text">{{ $perks }}</p>
         </div>
     </div>
 </div>

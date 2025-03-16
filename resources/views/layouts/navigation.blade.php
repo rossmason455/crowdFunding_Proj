@@ -33,8 +33,8 @@
                         {{ __('Home') }}
                     </x-nav-link>
 
-                    <x-nav-link class="navLinks" :href="route('home.create')"
-                        :active="request()->routeIs('home.create')">
+                    <x-nav-link class="navLinks" :href="route('create')"
+                        :active="request()->routeIs('create')">
                         {{ __('Create') }}
                     </x-nav-link>
 

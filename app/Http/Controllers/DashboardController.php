@@ -13,17 +13,17 @@ class DashboardController extends Controller
         $user = auth()->user();
 
         $campaign = null;
-    $riskProfile = null;
+    $investorProfile = null;
 
     if ($user->role === 'campaigner') {
         $campaign = Campaign::where('user_id', $user->id)->first();  
     }
 
     if ($user->role === 'investor') {
-        $riskProfile = InvestorProfile::where('user_id', $user->id)->first();
+        $investorProfile = InvestorProfile::where('user_id', $user->id)->first();
     }
 
-    return view('/home/dashboard', compact('user', 'campaign', 'riskProfile'));
+    return view('/home/dashboard', compact('user', 'campaign', 'investorProfile'));
 
         //$campaign = Campaign::where('user_id', auth()->id())->first();
 //
