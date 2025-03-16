@@ -34,15 +34,19 @@
                         </form>
 
                         @elseif (auth()->user()->role === 'investor' && $investorProfile)
-                        <!-- Display Investor Profile for Investors -->
-                        <h3>Investor Profile</h3>
-                        <p><strong>Risk Profile:</strong> {{ $investorProfile->risk_profile }}</p>
-                        <p><strong>Minimum Investment:</strong> ${{ $investorProfile->min_investment }}</p>
-                        <p><strong>Maximum Investment:</strong> ${{ $investorProfile->max_investment }}</p>
-                        <p><strong>Investment Preference:</strong> {{ $investorProfile->investment_preference }}</p>
-                        <p><strong>Investment Approach:</strong> {{ $investorProfile->investment_approach }}</p>
-                        <p><strong>Preferred Investment Stage:</strong> {{ $investorProfile->preferred_investment_stage }}</p>
-                        <p><strong>Investment Interest:</strong> {{ $investorProfile->investment_interest }}</p>
+                        <x-investor-profile-details
+                         
+                        
+                            :risk_profile="$investorProfile->risk_profile" 
+                            :min_investment="$investorProfile->min_investment"
+                            :max_investment="$investorProfile->max_investment" 
+                            :investment_prefrence="$investorProfile->investment_prefrence"
+                            :investment_approach="$investorProfile->investment_approach" 
+                            :preferred_investment_stage="$investorProfile->preferred_investment_stage" 
+                            :investment_interest="$investorProfile->investment_interest"
+                            :competitive_landscape="$investorProfile->competitive_landscape" 
+                            />
+
 
                     @else
                         <p>You don't have an active campaign please create one </p>

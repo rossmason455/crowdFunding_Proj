@@ -32,6 +32,8 @@ Route::get('/home/test', [HomeController::class, 'test'])->name('home.test');
 
 Route::post('/home', [HomeController::class, 'storeCampaign'])->name('home.storeCampaign'); 
 
+Route::post('/home', [HomeController::class, 'storeInvestorProfile'])->name('home.storeInvestorProfile'); 
+
 Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
 
 Route::put('/home/{campaign}', [HomeController::class, 'updateCampaign'])->name('home.updateCampaign');

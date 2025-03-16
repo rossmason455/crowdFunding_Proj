@@ -17,7 +17,7 @@
 
                     @else
                     <h3 class="fw-semibold mb-3">Enter Investor Profile details</h3>
-                    <x-investor-profile-form :action="route('home.store')" :method="'POST'" />
+                    <x-investor-profile-form :action="route('home.storeInvestorProfile')" :method="'POST'" />
                     @endif
                 </div>
             </div>
