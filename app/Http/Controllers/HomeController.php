@@ -51,6 +51,31 @@ class HomeController extends Controller
         return view('home.profileFilter', compact('profiles'));
     }
 
+    
+    public function campaignFilter(Request $request)
+    {
+  
+        $query = Campaign::with('campaignImages');
+
+        if ($request->filled('campaign_type')) {
+            $query->where('campaign_type', $request->campaign_type);
+        }
+    
+
+
+     
+    
+
+        $campaigns = $query->paginate(10);
+
+
+       
+        return view('home.campaignFilter', compact('campaigns'));
+    }
+
+
+
+
 
 
     public function show(Campaign $campaign)
