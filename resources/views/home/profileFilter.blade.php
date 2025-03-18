@@ -3,7 +3,7 @@
 @section('content')
 
 <h3 class="font-weight-semibold h3 mb-4">List of Campaigns:</h3>
-<<form method="GET" action="{{ route('home.profileSearch') }}" class="mb-4">
+<<form method="GET" action="{{ route('home.profileFilter') }}" class="mb-4">
     <div class="row">
 
         <div class="col-md-2">
@@ -31,7 +31,7 @@
 
         <div class="col-md-3 d-flex align-items-end">
             <button type="submit" class="btn btn-primary">Filter</button>
-            <a href="{{ route('home.profileSearch') }}" class="btn btn-secondary ms-2">Reset</a>
+            <a href="{{ route('home.profileFilter') }}" class="btn btn-secondary ms-2">Reset</a>
         </div>
  
     
@@ -39,7 +39,7 @@
     </div>
 </form>
 
-<!-- DISPLAY FILTERED RESULTS -->
+
 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 g-4">
     @forelse($profiles as $profile)
         <div class="col">

@@ -20,7 +20,7 @@ class HomeController extends Controller
 
 
 
-    public function profileSearch(Request $request)
+    public function profileFilter(Request $request)
     {
   
         $query = InvestorProfile::with('user');
@@ -48,7 +48,7 @@ class HomeController extends Controller
 
 
        
-        return view('home.profileSearch', compact('profiles'));
+        return view('home.profileFilter', compact('profiles'));
     }
 
 

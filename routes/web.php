@@ -16,7 +16,9 @@ Route::get('/home/dashboard', [DashboardController::class, 'dashboard'])
     Route::get('home', [HomeController::class, 'index'])->name('home.index'); 
 
     
-    Route::get('home/profileSearch', [HomeController::class, 'profileSearch'])->name('home.profileSearch'); 
+    Route::get('home/profileFilter', [HomeController::class, 'profileFilter'])->name('home.profileFilter'); 
+
+    Route::get('home/campaignFilter', [HomeController::class, 'campaignFilter'])->name('home.campaignFilter'); 
 
 Route::get('/home/{campaign}', [HomeController::class, 'show'])->name('home.show');
 
