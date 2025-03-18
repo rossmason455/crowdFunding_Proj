@@ -15,6 +15,9 @@ Route::get('/home/dashboard', [DashboardController::class, 'dashboard'])
 
     Route::get('home', [HomeController::class, 'index'])->name('home.index'); 
 
+    
+    Route::get('home/profileSearch', [HomeController::class, 'profileSearch'])->name('home.profileSearch'); 
+
 Route::get('/home/{campaign}', [HomeController::class, 'show'])->name('home.show');
 
 
@@ -37,7 +40,8 @@ Route::post('/home', [HomeController::class, 'storeInvestorProfile'])->name('hom
 Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
 
 Route::put('/home/{campaign}', [HomeController::class, 'updateCampaign'])->name('home.updateCampaign');
-                                                                                    
+                                                                
+
 
 Route::delete('/home/{campaign}', [HomeController::class, 'destroyCampaign'])->name('home.destroyCampaign');
 

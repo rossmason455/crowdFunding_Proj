@@ -20,6 +20,17 @@ class HomeController extends Controller
 
 
 
+    public function profileSearch()
+    {
+  
+        $profiles = InvestorProfile::with('user')->get();
+
+       
+        return view('home.profileSearch', compact('profiles'));
+    }
+
+
+
     public function show(Campaign $campaign)
     {
         $campaign = Campaign::with('perks')->findOrFail($campaign->id);
