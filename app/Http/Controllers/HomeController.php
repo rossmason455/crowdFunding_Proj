@@ -40,6 +40,8 @@ class HomeController extends Controller
         if ($request->filled('investment_preference')) {
             $query->where('investment_preference', 'like', '%' . $request->investment_preference . '%');
         }
+
+     
     
 
         $profiles = $query->paginate(10);
