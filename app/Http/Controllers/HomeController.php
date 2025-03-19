@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\InvestorProfile;
+use App\Models\Perk;
 use App\Models\Campaign;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -102,6 +103,13 @@ class HomeController extends Controller
         
         return view('home.edit', compact('campaign'));
     }
+
+
+    /////////////////////////////////////////////////////////
+    ////////////// CRUD CAMPAIGN
+    ////////////////////////////////////////////////////////
+
+
 
 
     public function storeCampaign(Request $request)
@@ -209,6 +217,13 @@ class HomeController extends Controller
     }
 
 
+    /////////////////////////////////////////////////////////
+    ////////////// CRUD PROFLIE
+    ////////////////////////////////////////////////////////
+
+
+
+
     public function storeInvestorProfile(Request $request)
     {
         //ensures the request has the required fields
@@ -269,6 +284,77 @@ class HomeController extends Controller
     }
 
 
+    /////////////////////////////////////////////////////////
+    ////////////// CRUD PERK
+    ////////////////////////////////////////////////////////
+
+
+    public function storePerk(Request $request, Campaign $campaign)
+    {
+        //ensures the request has the required fields
+        $request->validate([
+             
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'amount_required' => 'nullable|decimal|min:0',
+    
+        ]);
+        
+        $imageName = null;
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/perks'), $imageName);
+        }
+      
+       $perk = Perk::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'amount_required' => $request->amount_required,
+            'image' => $imageName 
+        ]);
+
+     
+
+        
+        return redirect()->route('home.dashboard', $campaign->id)->with('success', 'Perk created successfully!');
+    }
+
+
+    public function updatePerk(Request $request, Perk $perk)
+    {
+        //ensures the request has the required fields
+        $request->validate([
+             
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'amount_required' => 'nullable|decimal|min:0',
+        ]);
+        
+        $imageName = null;
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/banner'), $imageName);
+        }
+      
+        $perk->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'amount_required' => $request->amount_required,
+            'image' => $imageName 
+        ]);
+
+      
+        
+        return redirect()->route('home.dashboard', $perk->campaign_id)->with('success', 'Perk updated successfully!');
+    }
+
+
+    public function destroyPerk(Campaign $campaign)
+    {
+        $campaign->delete(); 
+
+        return redirect()->route('home.index')->with('success', 'Campaign deleted successfully!');
+    }
 
 
 
