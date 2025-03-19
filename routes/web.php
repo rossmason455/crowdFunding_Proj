@@ -26,6 +26,9 @@ Route::get('/home/{campaign}', [HomeController::class, 'show'])->name('home.show
 Route::get('create', [HomeController::class, 'create'])->name('create');
 
 
+Route::get('home/createPerk', [HomeController::class, 'createPerk'])->name('home.createPerk');
+
+
 Route::get('/test-view', function () {
     return view('home.test');
 });
@@ -47,7 +50,7 @@ Route::put('/home/{campaign}', [HomeController::class, 'updateCampaign'])->name(
 
 Route::delete('/home/{campaign}', [HomeController::class, 'destroyCampaign'])->name('home.destroyCampaign');
 
-//Route::post('/home', [HomeController::class, 'store'])->name('home.store'); 
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
