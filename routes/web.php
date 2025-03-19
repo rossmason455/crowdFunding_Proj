@@ -38,9 +38,11 @@ Route::get('/test-view', function () {
 
 Route::get('/home/test', [HomeController::class, 'test'])->name('home.test');
 
-Route::post('/home', [HomeController::class, 'storeCampaign'])->name('home.storeCampaign'); 
+Route::post('/home/storeCampaign', [HomeController::class, 'storeCampaign'])->name('home.storeCampaign'); 
 
-Route::post('/home', [HomeController::class, 'storeInvestorProfile'])->name('home.storeInvestorProfile'); 
+Route::post('/home/storePerk', [HomeController::class, 'storePerk'])->name('home.storePerk'); 
+
+Route::post('/home/storeInvestorProfile', [HomeController::class, 'storeInvestorProfile'])->name('home.storeInvestorProfile'); 
 
 Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
 
