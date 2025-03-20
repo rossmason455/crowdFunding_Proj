@@ -9,25 +9,49 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home/dashboard', [DashboardController::class, 'dashboard'])
+Route::get('/dashboard/mainPanel', [DashboardController::class, 'mainPanel'])
     ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+    ->name('dashboard/mainPanel');
 
     Route::get('home', [HomeController::class, 'index'])->name('home.index'); 
+
+    Route::get('home/profileFilter', [HomeController::class, 'profileFilter'])->name('home.profileFilter'); 
+
+    Route::get('home/campaignFilter', [HomeController::class, 'campaignFilter'])->name('home.campaignFilter'); 
+
 
 Route::get('/home/{campaign}', [HomeController::class, 'show'])->name('home.show');
 
 
-Route::get('create', [HomeController::class, 'create'])->name('create');
+Route::get('create', [DashboardController::class, 'create'])->name('create');
 
-Route::post('/home', [HomeController::class, 'storeCampaign'])->name('home.storeCampaign'); 
 
-Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
+Route::get('createPerk', [HomeController::class, 'createPerk'])->name('createPerk');
 
-Route::put('/home/{campaign}', [HomeController::class, 'update'])->name('home.update');
+
+
+
+
+Route::post('/dashboard/storePerk', [DashboardController::class, 'storePerk'])->name('dashboard.storePerk'); 
+
+
+
+Route::post('/dashboard', [DashboardController::class, 'storeCampaign'])->name('dashboard.storeCampaign'); 
+
+Route::get('/dashboard/{campaign}/edit', [DashboardController::class, 'editCampaign'])->name('dashboard.editCampaign');
+
+Route::put('/dashboard/{campaign}', [DashboardController::class, 'update'])->name('dashboard.updateCampaign');
                                                                                     
 
-Route::delete('/home/{campaign}', [HomeController::class, 'destroy'])->name('home.destroy');
+Route::delete('/dashboard/{campaign}', [DashboardController::class, 'destroy'])->name('dashboard.destroyCampaign');
+
+
+Route::post('/dashboard', [DashboardController::class, 'storeInvestorProfile'])->name('dashboard.storeInvestorProfile'); 
+
+Route::get('/dashboard/{investorProfile}/edit', [DashboardController::class, 'editInvestorProfile'])->name('dashboard.editInvestorProfile');
+
+Route::put('/dashboard/{investorProfile}', [DashboardController::class, 'updateInvestorProfile'])->name('dashboard.updateInvestorProfile');
+
 
 //Route::post('/home', [HomeController::class, 'store'])->name('home.store'); 
 
