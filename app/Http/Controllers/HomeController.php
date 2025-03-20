@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\Models\InvestorProfile;
 use App\Models\Perk;
 use App\Models\Campaign;
+use App\Models\Transaction;
+use Stripe\PaymentIntent;
+use Stripe\Exception\ApiErrorException;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -368,8 +371,48 @@ class HomeController extends Controller
 
 
 
+public function storeContribution(Request $request){
+
+    $request-> validate([
+        'amount' => 'required|numeric|min:0.01',
+        'payment_method_id' => 'required|string',
+    ]);
+
+    $user = auth()->user();
+    $campaign = Campaign::findOrFail($request->campaign_id);
 
 
+    $transaction = Transaction::create([
+    'user_id' => $user->id,  
+    'campaign_id' => $campaign->id,
+    'amount' => $request->amount,
+    'stripe_payment_method_id' => $request->payment_method_id,
+    'payment_status' => 'pending',
+    ]);
+
+    try{
+        $paymentIntent = PaymentIntent::create([
+            'amount' => $request->amount * 100,  
+            'currency' => 'usd',
+            'payment_method' => $request->payment_method_id,
+            'confirmation_method' => 'manual',
+            'confirm' => true,
+        ]);   
+
+        $transaction->update([
+            'payment_status' => 'completed',
+            'stripe_transaction_id' => $paymentIntent->id,
+        ]);
+
+        return response()->json(['status' => 'success']);
+
+    } catch (ApiErrorException $e) { 
+        $transaction->update(['payment_status' => 'failed']);
+        return response()->json(['status' => 'failure', 'error' => $e->getMessage()]);
+    }
+
+
+}
 
 
 
