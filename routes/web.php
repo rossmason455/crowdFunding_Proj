@@ -18,9 +18,9 @@ Route::get('/home/dashboard', [DashboardController::class, 'dashboard'])
 Route::get('/home/{campaign}', [HomeController::class, 'show'])->name('home.show');
 
 
-Route::get('/home/create', [HomeController::class, 'create'])->name('home.create');
+Route::get('create', [HomeController::class, 'create'])->name('create');
 
-Route::post('/home', [HomeController::class, 'store'])->name('home.store'); 
+Route::post('/home', [HomeController::class, 'storeCampaign'])->name('home.storeCampaign'); 
 
 Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
 

@@ -36,7 +36,7 @@ class HomeController extends Controller
        
 
 
-        return view('home.create');
+        return view('create');
 
 
 
