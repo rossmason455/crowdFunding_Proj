@@ -31,7 +31,7 @@ Route::get('createPerk', [HomeController::class, 'createPerk'])->name('createPer
 
 
 
-Route::get('home/contribute', [HomeController::class, 'contribute'])->name('home.contribute'); 
+Route::get('contribute', [HomeController::class, 'contribute'])->name('contribute'); 
 
 
 

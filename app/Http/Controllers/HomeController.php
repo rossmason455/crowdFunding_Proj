@@ -363,7 +363,7 @@ class HomeController extends Controller
     
 
        
-        return view('home.contribute');
+        return view('contribute');
     }
 
 
