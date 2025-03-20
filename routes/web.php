@@ -26,15 +26,15 @@ Route::get('/home/{campaign}', [HomeController::class, 'show'])->name('home.show
 Route::get('create', [HomeController::class, 'create'])->name('create');
 
 
-Route::get('home/createPerk', [HomeController::class, 'createPerk'])->name('home.createPerk');
+Route::get('createPerk', [HomeController::class, 'createPerk'])->name('createPerk');
 
 
-Route::get('/test-view', function () {
-    return view('home.test');
-});
+Route::get('/test-route', function () {
+    return 'Route is working!';
+})->name('test.route');
 
 
-
+Route::post('/home/storeCampaign', '\App\Http\Controllers\HomeController@storeCampaign')->name('home.storeCampaign');
 
 Route::get('/home/test', [HomeController::class, 'test'])->name('home.test');
 

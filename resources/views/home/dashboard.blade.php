@@ -33,6 +33,9 @@
                             <button type="submit" class="text-red-600 hover:underline">Delete Campaign</button>
                         </form>
 
+                        <a href="{{ route('createPerk') }}" class="btn btn-primary">Create Perk</a>
+
+
                         @elseif (auth()->user()->role === 'investor' && $investorProfile)
                         <x-investor-profile-details
                          
