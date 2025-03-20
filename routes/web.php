@@ -29,14 +29,11 @@ Route::get('create', [HomeController::class, 'create'])->name('create');
 Route::get('createPerk', [HomeController::class, 'createPerk'])->name('createPerk');
 
 
-Route::get('/test-route', function () {
-    return 'Route is working!';
-})->name('test.route');
 
 
-Route::post('/home/storeCampaign', '\App\Http\Controllers\HomeController@storeCampaign')->name('home.storeCampaign');
+Route::get('home/contribute', [HomeController::class, 'contribute'])->name('home.contribute'); 
 
-Route::get('/home/test', [HomeController::class, 'test'])->name('home.test');
+
 
 Route::post('/home/storeCampaign', [HomeController::class, 'storeCampaign'])->name('home.storeCampaign'); 
 

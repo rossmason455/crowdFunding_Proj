@@ -27,13 +27,13 @@
                         
                         <a href="{{ route('home.edit', $campaign->id) }}" class="btn btn-primary">Edit campaign</a>
 
-                        <form action="{{ route('home.destroy', $campaign->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this campaign?');">
+                        <form action="{{ route('home.destroyCampaign', $campaign->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this campaign?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="text-red-600 hover:underline">Delete Campaign</button>
                         </form>
 
-                        <a href="{{ route('createPerk') }}" class="btn btn-primary">Create Perk</a>
+                        
 
 
                         @elseif (auth()->user()->role === 'investor' && $investorProfile)
