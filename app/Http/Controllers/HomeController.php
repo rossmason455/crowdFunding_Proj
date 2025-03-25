@@ -381,7 +381,9 @@ class HomeController extends Controller
     }
 
 
-    
+    public function contribute(){
+        return view('contribute');
+    }
 
 
 

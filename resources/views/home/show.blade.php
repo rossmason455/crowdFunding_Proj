@@ -20,6 +20,7 @@
                             :end_date="$campaign->end_date" :goal="$campaign->goal" :progress="$campaign->progress"
                             :competitive_landscape="$campaign->competitive_landscape" :team="$campaign->team"
                             :use_of_funds="$campaign->use_of_funds" :campaign_type="$campaign->campaign_type"
+                           
                             :perks="$campaign->perks" />
 
                             <a href="{{ route('home.edit', $campaign->id) }}" class="btn btn-primary">
