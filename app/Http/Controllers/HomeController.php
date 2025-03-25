@@ -381,11 +381,15 @@ class HomeController extends Controller
     }
 
 
-    public function contribute(){
-        return view('contribute');
+    public function contribute(Campaign $campaign){
+        return view('contribute', compact('campaign'));
     }
 
 
+    public function storeContribution(Request $request, Campaign $campaign)
+    {
+
+    }
 
 //
     //public function show(Campaign $campiagn)
