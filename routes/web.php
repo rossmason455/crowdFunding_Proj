@@ -40,7 +40,7 @@ Route::post('/home/storeInvestorProfile', [HomeController::class, 'storeInvestor
 
 Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
 
-
+Route::post('/home/storeContribution', [HomeController::class, 'storeContribution'])->name('home.storeContribution'); 
 
 Route::put('/home/{campaign}', [HomeController::class, 'updateCampaign'])->name('home.updateCampaign');
                                                                 
