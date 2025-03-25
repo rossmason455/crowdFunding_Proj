@@ -99,11 +99,24 @@
             <div class="text-danger">{{ $message }}</div>
         @enderror
     </div>
+
+    <div class="mb-3">
+        <label for="use_of_funds" class="form-label">Use of Funds</label>
+        <input type="text" name="use_of_funds" id="use_of_funds" 
+            value="{{ old('team', $campaign->use_of_funds ?? '') }}" required 
+            class="form-control" />
+        @error('team')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
+    </div>
+
+
+
     <div class="mb-3">
     <label for="campaign_type" class="form-label">Campaign Type</label>
     <select name="campaign_type" id="campaign_type" class="form-control" required>
-        <option value="Angel Investment" {{ old('campaign_type', $campaign->campaign_type ?? '') }}>Angel Investment</option>
-        <option value="Crowdfunding" {{ old('campaign_type', $campaign->campaign_type ?? '')}}>Crowdfunding</option>
+        <option value="Angel Investment" {{ old('campaign_type', $campaign->campaign_type ?? '') === 'Angel Investment' ? 'selected' : '' }}>Angel Investment</option>
+        <option value="Crowdfunding" {{ old('campaign_type', $campaign->campaign_type ?? '') === 'Crowdfunding' ? 'selected' : ''}}>Crowdfunding</option>
     </select>
     @error('campaign_type')
         <div class="text-danger">{{ $message }}</div>

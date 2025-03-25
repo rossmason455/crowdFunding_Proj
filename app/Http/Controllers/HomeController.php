@@ -137,6 +137,7 @@ class HomeController extends Controller
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images/banner'), $imageName);
         }
+       
       
        $campaign = Campaign::create([
             'user_id' => auth()->id(),

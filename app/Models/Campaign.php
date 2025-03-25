@@ -20,6 +20,7 @@ class Campaign extends Model
         'competitive_landscape',
         'team',
         'use_of_funds',
+        'campaign_type',
         'user_id',
     ];
 
