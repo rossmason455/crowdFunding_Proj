@@ -23,9 +23,13 @@
                             :competitive_landscape="$campaign->competitive_landscape" 
                             :team="$campaign->team"
                             :use_of_funds="$campaign->use_of_funds" 
-                            :campaign_type="$campaign->campaign_type" />
+                            :campaign_type="$campaign->campaign_type" 
+                            :perks="$campaign->perks"/>
                         
                         <a href="{{ route('home.edit', $campaign->id) }}" class="btn btn-primary">Edit campaign</a>
+
+                        <a href="{{ route('createPerk', $campaign->id) }}" class="btn btn-primary">Add Perk</a>
+
 
                         <form action="{{ route('home.destroyCampaign', $campaign->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this campaign?');">
                             @csrf

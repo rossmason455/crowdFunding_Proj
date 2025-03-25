@@ -31,9 +31,6 @@ Route::get('createPerk', [HomeController::class, 'createPerk'])->name('createPer
 
 
 
-Route::get('contribute', [HomeController::class, 'contribute'])->name('contribute'); 
-
-
 
 Route::post('/home/storeCampaign', [HomeController::class, 'storeCampaign'])->name('home.storeCampaign'); 
 
@@ -42,6 +39,8 @@ Route::post('/home/storePerk', [HomeController::class, 'storePerk'])->name('home
 Route::post('/home/storeInvestorProfile', [HomeController::class, 'storeInvestorProfile'])->name('home.storeInvestorProfile'); 
 
 Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
+
+
 
 Route::put('/home/{campaign}', [HomeController::class, 'updateCampaign'])->name('home.updateCampaign');
                                                                 

@@ -27,6 +27,7 @@
                             </a>
 
 
+
                             <form action="{{ route('home.destroyCampaign', $campaign->id) }}" method="POST"
                                 onsubmit="return confirm('Are you sure you want to delete this campaign?');">
                                 @csrf
