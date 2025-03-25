@@ -5,6 +5,7 @@ use App\Models\InvestorProfile;
 use App\Models\Perk;
 use App\Models\Campaign;
 use App\Models\Transaction;
+use Stripe\Stripe;
 use Stripe\PaymentIntent;
 use Stripe\Exception\ApiErrorException;
 use App\Http\Controllers\Controller;
@@ -388,7 +389,28 @@ class HomeController extends Controller
 
     public function storeContribution(Request $request, Campaign $campaign)
     {
+        $request->validate([
+            'amount' => 'required|numeric|min:1',
+        ]);
 
+        Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+
+        $paymentIntent = PaymentIntent::create([
+            'amount' => $request->amount * 100,
+            'currency' => 'usd',
+        ]);
+
+        $transaction = Transaction::create([
+            'amount' => $request->amount,
+            'stripe_transaction_id' => $paymentIntent->id,
+            'payment_status' => 'pending',
+            'stripe_payment_method_id' => $paymentIntent->payment_method,
+            'stripe_payment_intent_id' => $paymentIntent->client_secret,
+            'campaign_id' => $campaign->id,
+            'user_id' => auth()->id(),
+        ]);
+
+        return redirect()->route('home.index')->with('success', 'Perk updated successfully!');
     }
 
 //
