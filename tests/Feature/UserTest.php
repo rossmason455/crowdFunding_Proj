@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -11,15 +12,12 @@ class UserTest extends TestCase
     /**
      * A basic feature test example.
      */
-   public function setUp(): void
-   {
-    parent::setUp();
-
-
-    Config::set('database.connections.mysql.database', 'testing_db')
-   }
    
-   
+     public function testDatabaseConnectionIsCorrect()
+     {
+         
+         $this->assertEquals('testing_db', config('database.connections.mysql.database'));
+     }
    
    
    
