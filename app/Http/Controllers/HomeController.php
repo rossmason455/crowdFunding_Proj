@@ -400,7 +400,7 @@ class HomeController extends Controller
             'currency' => 'usd',
         ]);
 
-        dd($campaign);
+       
 
         $transaction = Transaction::create([
             'amount' => $request->amount,
@@ -412,7 +412,7 @@ class HomeController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('home.index', )->with('success', 'Perk updated successfully!');
+        return redirect()->route('home.index',$campaign->id )->with('success', 'Perk updated successfully!');
     }
 
 //
