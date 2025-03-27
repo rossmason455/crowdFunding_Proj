@@ -11,7 +11,20 @@ class UserTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_example(): void
+   public function setUp(): void
+   {
+    parent::setUp();
+
+
+    Config::set('database.connections.mysql.database', 'testing_db')
+   }
+   
+   
+   
+   
+   
+   
+     public function test_example(): void
     {
         $response = $this->get('/');
 
