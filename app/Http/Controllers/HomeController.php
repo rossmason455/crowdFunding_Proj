@@ -66,7 +66,7 @@ class HomeController extends Controller
             $query->where('campaign_type', $request->campaign_type);
         }
     
-        
+
 
      
     
@@ -134,6 +134,9 @@ class HomeController extends Controller
             'team' => 'nullable|string',
             'use_of_funds' => 'nullable|string',
             'campaign_type' => 'required|in:Crowdfunding,Angel Investment',
+            'category' => 'required|in:Funding,Marketing,Research, Development, Education,Technology, Healthcare, Non-profit, Art & Culture, Environment,
+            Social Impact, Innovation, Startups, Sports, Fashion,
+            Food & Beverage, Travel, Entertainment, Real Estate, Financial Services',
         ]);
         
         $imageName = null;
@@ -155,6 +158,7 @@ class HomeController extends Controller
             'team' => $request->team,
             'use_of_funds' => $request->use_of_funds,
             'campaign_type' => $request->campaign_type,
+            'category' => $request->category,
             'image' => $imageName 
         ]);
 
@@ -184,6 +188,9 @@ class HomeController extends Controller
             'team' => 'nullable|string',
             'use_of_funds' => 'nullable|string',
             'campaign_type' => 'required|in:Crowdfunding,Angel Investment',
+            'category' => 'required|in:Funding,Marketing,Research, Development, Education,Technology, Healthcare, Non-profit, Art & Culture, Environment,
+            Social Impact, Innovation, Startups, Sports, Fashion,
+            Food & Beverage, Travel, Entertainment, Real Estate, Financial Services',
         ]);
         
         $imageName = null;
@@ -204,6 +211,7 @@ class HomeController extends Controller
             'team' => $request->team,
             'use_of_funds' => $request->use_of_funds,
             'campaign_type' => $request->campaign_type,
+            'category' => $request->category,
             'image' => $imageName 
         ]);
 

@@ -123,6 +123,23 @@
     @enderror
 </div>
 
+<div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+    <select name="category" id="category" class="form-control" required>
+        @foreach(['Funding', 'Marketing', 'Research', 'Development', 'Education', 
+                 'Technology', 'Healthcare', 'Non-profit', 'Art & Culture', 'Environment', 
+                 'Social Impact', 'Innovation', 'Startups', 'Sports', 'Fashion', 
+                 'Food & Beverage', 'Travel', 'Entertainment', 'Real Estate', 'Financial Services'] as $category)
+            <option value="{{ $category }}" {{ old('category', $campaign->category ?? '') === $category ? 'selected' : '' }}>
+                {{ $category }}
+            </option>
+        @endforeach
+    </select>
+    @error('category')
+        <div class="text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
 
     
 <div class="mb-3">
