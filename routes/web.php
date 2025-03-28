@@ -29,6 +29,7 @@ Route::get('create', [HomeController::class, 'create'])->name('create');
 Route::get('createPerk', [HomeController::class, 'createPerk'])->name('createPerk');
 
 
+
 Route::get('{campaign}/contribute', [HomeController::class, 'contribute'])->name('contribute');
 
 

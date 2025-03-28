@@ -86,6 +86,9 @@ class HomeController extends Controller
     public function show(Campaign $campaign)
     {
         $campaign = Campaign::with('perks')->findOrFail($campaign->id);
+        
+       
+
 
         return view('home.show', compact('campaign'));
     }
@@ -335,11 +338,10 @@ class HomeController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'amount_required' => $request->amount_required,
-            'image' => $imageName 
+            'image' => '/images/perks/' . $imageName
         ]);
 
      
-
         
         return redirect()->route('dashboard', $campaign->id)->with('success', 'Perk created successfully!');
     }

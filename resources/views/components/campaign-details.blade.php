@@ -54,12 +54,11 @@
             <h2 class="h5 mt-3">Progress</h2>
             <p class="card-text">{{ $progress }}</p>
 
-         
             
             <h2 class="h5 mt-3">Competitive Landscape</h2>
             <p class="card-text">{{ $competitive_landscape }}</p>
 
-         
+
             
              <h2 class="h5 mt-3">Team</h2>
             <p class="card-text">{{ $team }}</p>
@@ -72,6 +71,17 @@
             <h2 class="h5 mt-3">Campaign Type</h2>
             <p class="card-text">{{ $campaign_type }}</p>
 
+
+            <h2 class="h5 mt-3">Perks</h2>
+@foreach($perks as $perk)
+    <div class="perk">
+    <img src="{{ asset($perk->image) }}" alt="{{ $perk->title }}" class="img-fluid" style="height: 150px">
+        <h3>{{ $perk->title }}</h3>
+        <p>{{ $perk->description }}</p>
+        <p>Amount Required: ${{ number_format($perk->amount_required, 2) }}</p>
+       
+    </div>
+@endforeach
        
         </div>
     </div>

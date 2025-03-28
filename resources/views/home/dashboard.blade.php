@@ -12,15 +12,18 @@
                     <div class="card-body">
                     @if (auth()->user()->role === 'campaigner' && $campaign)
                         <x-campaign-details 
-                            :image="$campaign->campaignImages->first()->image ?? ''"
+                             :image="$campaign->campaignImages[0]->image ?? ''"
                             :title="$campaign->title" 
                             :description="$campaign->description"
+
                             :solution="$campaign->solution" 
                             :start_date="$campaign->start_date"
                             :end_date="$campaign->end_date" 
                             :goal="$campaign->goal" 
                             :progress="$campaign->progress"
-                            :competitive_landscape="$campaign->competitive_landscape" 
+                    
+                            :competitive_landscape="$campaign->competitive_landscape"
+                         
                             :team="$campaign->team"
                             :use_of_funds="$campaign->use_of_funds" 
                             :campaign_type="$campaign->campaign_type" 
@@ -28,7 +31,14 @@
                         
                         <a href="{{ route('home.edit', $campaign->id) }}" class="btn btn-primary">Edit campaign</a>
 
+                     
+
+
+
                         <a href="{{ route('createPerk', $campaign->id) }}" class="btn btn-primary">Add Perk</a>
+
+
+
 
 
                         <form action="{{ route('home.destroyCampaign', $campaign->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this campaign?');">
