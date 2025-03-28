@@ -66,7 +66,7 @@ class HomeController extends Controller
             $query->where('campaign_type', $request->campaign_type);
         }
     
-
+        
 
      
     
