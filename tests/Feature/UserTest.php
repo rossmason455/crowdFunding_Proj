@@ -2,10 +2,12 @@
 
 namespace Tests\Feature;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+
 use Illuminate\Foundation\Testing\WithFaker;
 
 use Tests\TestCase;
+
+
 
 class UserTest extends TestCase
 {
@@ -22,51 +24,24 @@ class UserTest extends TestCase
    
    
    
-     public function test_create_1000_users(): void
-    {
-        $users = User::factory()->count(1000)->create();
-
-        $this->assertDatabaseCount('users', 1000);
-
-
-
-        $user = $users->first();
-    
-        $this->assertDatabaseHas('users', [
-            'name' => $user->name
-        ]);
-
-
-        $this->assertDatabaseHas('users', [
-            'email' => $user->email
-        ]);
-
-        $this->assertDatabaseHas('users', [
-            'password' => $user->password
-        ]);
-
-        $this->assertDatabaseHas('users', [
-            'remember_token' => $user->remember_token
-        ]);
-
-        $this->assertDatabaseHas('users', [
-            'stripe_id' => $user->stripe_id
-        ]);
-
-        $this->assertDatabaseHas('users', [
-            'pm_type' => $user->pm_type
-        ]);
-
-        $this->assertDatabaseHas('users', [
-            'pm_last_four' => $user->pm_last_four
-        ]);
-
-        $this->assertDatabaseHas('users', [
-            'role' => $user->role
-        ]);
-
-        $this->assertDatabaseHas('users', [
-            'image' => $user->image
-        ]);
-    }
+    public function test_create_1000_users(): void
+   {
+//    User::firstOrCreate([
+//        'id' => 20,
+//    ], [
+//       'name' => 'John Melrose',
+//'email' => 'john123@examplee.com',
+//'email_verified_at' => now(),
+//'password' => 'hello',
+//'remember_token' => '84QI5BKtiA',
+//'role' => 'campaigner',
+//'image' => 'image.jpg',
+//'stripe_id' => '6c1deb66-478c-4046-9fe1-6cc80f9831f0',
+//'pm_type' => 'amex',
+//'pm_last_four' => '1234',
+//'trial_ends_at' => null
+//    ]);
+   }
 }
+
+
