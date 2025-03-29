@@ -37,9 +37,16 @@ Route::post('/home/storeCampaign', [HomeController::class, 'storeCampaign'])->na
 
 Route::post('/home/storePerk', [HomeController::class, 'storePerk'])->name('home.storePerk'); 
 
+
+
+
+Route::get('/home/{perk}/editPerk', [HomeController::class, 'editPerk'])->name('home.editPerk'); 
+
 Route::post('/home/storeInvestorProfile', [HomeController::class, 'storeInvestorProfile'])->name('home.storeInvestorProfile'); 
 
 Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
+
+Route::put('/home/{perk}', [HomeController::class, 'updatePerk'])->name('home.updatePerk');
 
 Route::post('/home/storeContribution', [HomeController::class, 'storeContribution'])->name('home.storeContribution'); 
 

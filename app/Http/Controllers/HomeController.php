@@ -66,6 +66,9 @@ class HomeController extends Controller
             $query->where('campaign_type', $request->campaign_type);
         }
     
+        if ($request->filled('category')) {
+            $query->where('category', $request->category);
+        }
 
 
      
@@ -315,6 +318,13 @@ class HomeController extends Controller
    
 
 
+    public function editPerk(Perk $perk)
+    {
+        
+        
+        return view('home.editPerk', compact('perk'));
+    }
+
 
 
     public function storePerk(Request $request, Campaign $campaign)
@@ -375,12 +385,12 @@ class HomeController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'amount_required' => $request->amount_required,
-            'image' => $imageName 
+            'image' => '/images/perks/' . $imageName 
         ]);
 
       
         
-        return redirect()->route('home.dashboard', $perk->campaign_id)->with('success', 'Perk updated successfully!');
+        return redirect()->route('dashboard', $perk->perk_id)->with('success', 'Perk updated successfully!');
     }
 
 

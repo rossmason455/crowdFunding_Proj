@@ -8,16 +8,7 @@
     @endif
 
           
-    <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input type="text" name="title" id="title" 
-            value="{{ old('title', $perk->title ?? '') }}" required 
-            class="form-control" />
-        @error('title')
-            <div class="text-danger">{{ $message }}</div>
-        @enderror
-    </div>
-     
+   
   
 
     

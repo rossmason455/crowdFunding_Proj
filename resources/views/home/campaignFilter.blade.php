@@ -9,11 +9,28 @@
         <div class="col-md-2">
             <label for="campaign_type" class="form-label">Campaign Type</label>
             <select name="campaign_type" id="campaign_type" class="form-control">
-                <option value="">-- Select Risk Level --</option>
+                <option value="">-- Select Campaign Type --</option>
                 <option value="Crowdfunding" {{ request('campaign_type') == 'Crowdfunding' ? 'selected' : '' }}>Crowdfunding</option>
                 <option value="Angel Investment" {{ request('campaign_type') == 'Angel Investment' ? 'selected' : '' }}>Angel Investment</option>
             </select>
         </div>
+
+
+
+        <div class="col-md-2">
+    <label for="category" class="form-label">Category</label>
+    <select name="category" id="category" class="form-control">
+        <option value="">-- Select Category --</option>
+        @foreach(['Funding', 'Marketing', 'Research', 'Development', 'Education', 
+                 'Technology', 'Healthcare', 'Non-profit', 'Art & Culture', 'Environment', 
+                 'Social Impact', 'Innovation', 'Startups', 'Sports', 'Fashion', 
+                 'Food & Beverage', 'Travel', 'Entertainment', 'Real Estate', 'Financial Services'] as $category)
+            <option value="{{ $category }}" {{ request('category') == $category ? 'selected' : '' }}>
+                {{ $category }}
+            </option>
+        @endforeach
+    </select>
+</div>
 
         <div class="col-md-3 d-flex align-items-end">
             <button type="submit" class="btn btn-primary">Filter</button>

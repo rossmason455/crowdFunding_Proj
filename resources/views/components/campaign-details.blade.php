@@ -79,7 +79,7 @@
         <h3>{{ $perk->title }}</h3>
         <p>{{ $perk->description }}</p>
         <p>Amount Required: ${{ number_format($perk->amount_required, 2) }}</p>
-       
+        <a href="{{ route('home.editPerk', $perk->id) }}" class="btn btn-primary">Edit Perk</a>
     </div>
 @endforeach
        
