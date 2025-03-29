@@ -44,6 +44,10 @@ Route::get('/home/{perk}/editPerk', [HomeController::class, 'editPerk'])->name('
 
 Route::post('/home/storeInvestorProfile', [HomeController::class, 'storeInvestorProfile'])->name('home.storeInvestorProfile'); 
 
+Route::put('/home/{investorProfile}', [HomeController::class, 'updateinvestorProfile'])->name('home.updateInvestorProfile');
+
+Route::get('/home/{investorProfile}/editProfile', [HomeController::class, 'editProfile'])->name('home.editProfile');
+
 Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
 
 Route::put('/home/{perk}', [HomeController::class, 'updatePerk'])->name('home.updatePerk');

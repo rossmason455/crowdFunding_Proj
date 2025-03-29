@@ -240,6 +240,12 @@ class HomeController extends Controller
     ////////////// CRUD PROFLIE
     ////////////////////////////////////////////////////////
 
+    public function editProfile( InvestorProfile $investorProfile)
+    {
+        
+        
+        return view('home.editProfile', compact('investorProfile'));
+    }
 
 
 
@@ -299,7 +305,7 @@ class HomeController extends Controller
             'investment_interest' => $request->investment_interest,
         ]);
         
-        return redirect()->route('home.index')->with('success', 'Campaign created successfully!');
+        return redirect()->route('home.index')->with('success', 'Profile created successfully!');
     }
 
 
@@ -390,7 +396,7 @@ class HomeController extends Controller
 
       
         
-        return redirect()->route('dashboard', $perk->perk_id)->with('success', 'Perk updated successfully!');
+        return redirect()->route('dashboard', $perk->id)->with('success', 'Perk created successfully!');
     }
 
 

@@ -37,7 +37,7 @@
 
                         <a href="{{ route('createPerk', $campaign->id) }}" class="btn btn-primary">Add Perk</a>
 
-        
+
 
 
 
@@ -64,6 +64,7 @@
                             :competitive_landscape="$investorProfile->competitive_landscape" 
                             />
 
+                            <a href="{{ route('home.editProfile', $investorProfile->id) }}" class="btn btn-primary">Edit Profile</a>
 
                     @else
                         <p>You don't have an active campaign please create one </p>
