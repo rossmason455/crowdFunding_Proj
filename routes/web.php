@@ -30,7 +30,7 @@ Route::get('createPerk', [HomeController::class, 'createPerk'])->name('createPer
 
 
 
-Route::get('{campaign}/contribute', [HomeController::class, 'contribute'])->name('contribute');
+Route::get('contribute/{campaign}', [HomeController::class, 'contribute'])->name('contribute');
 
 
 Route::post('/home/storeCampaign', [HomeController::class, 'storeCampaign'])->name('home.storeCampaign'); 

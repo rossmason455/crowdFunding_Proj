@@ -436,7 +436,7 @@ class HomeController extends Controller
             'currency' => 'usd',
         ]);
 
-       
+        $campaign = Campaign::where('user_id', auth()->id())->first();
 
         $transaction = Transaction::create([
             'amount' => $request->amount,
