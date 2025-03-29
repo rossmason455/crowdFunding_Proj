@@ -137,9 +137,8 @@ class HomeController extends Controller
             'team' => 'nullable|string',
             'use_of_funds' => 'nullable|string',
             'campaign_type' => 'required|in:Crowdfunding,Angel Investment',
-            'category' => 'required|in:Funding,Marketing,Research, Development, Education,Technology, Healthcare, Non-profit, Art & Culture, Environment,
-            Social Impact, Innovation, Startups, Sports, Fashion,
-            Food & Beverage, Travel, Entertainment, Real Estate, Financial Services',
+            'category' => 'required|in:Funding,Marketing,Research,Development,Education,Technology,Healthcare,Non-profit,Art & Culture,Environment,
+            Social Impact,Innovation,Startups,Sports,Fashion,Food & Beverage,Travel,Entertainment,Real Estate,Financial Services',
         ]);
         
         $imageName = null;
@@ -230,6 +229,8 @@ class HomeController extends Controller
 
     public function destroyCampaign(Campaign $campaign)
     {
+       
+        $campaign->perks()->delete();
         $campaign->delete(); 
 
         return redirect()->route('home.index')->with('success', 'Campaign deleted successfully!');
@@ -240,6 +241,16 @@ class HomeController extends Controller
     ////////////// CRUD PROFLIE
     ////////////////////////////////////////////////////////
 
+   
+
+   
+    public function showProfile(InvestorProfile $investorProfile)
+    {
+        
+        return view('home.showProfile')->with('investorProfile', $investorProfile);
+    }
+   
+   
     public function editProfile( InvestorProfile $investorProfile)
     {
         
@@ -337,8 +348,7 @@ class HomeController extends Controller
     {
       
         
-
-
+        
 
         $request->validate([
              

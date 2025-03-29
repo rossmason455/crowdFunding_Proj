@@ -43,7 +43,7 @@
 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 g-4">
     @forelse($profiles as $profile)
         <div class="col">
-            <a href="{{ route('home.show', $profile) }}">
+            <a href="{{ route('home.showProfile', $profile) }}">
                 <x-investor-profile-card 
                     :image="optional($profile->user)->image"
                     :risk_profile="$profile->risk_profile"

@@ -7,7 +7,17 @@
         @method($method)
     @endif
 
-          
+                     
+    <div class="mb-3">
+        <label for="description" class="form-label">Title</label>
+        <input type="text" name="title" id="title" 
+            value="{{ old('title', $perk->title ?? '') }}" required 
+            class="form-control" />
+        @error('description')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
+    </div>
+       
    
   
 
@@ -16,7 +26,7 @@
     
               
     <div class="mb-3">
-        <label for="description" class="form-label">Title</label>
+        <label for="description" class="form-label">Description</label>
         <input type="text" name="description" id="description" 
             value="{{ old('description', $perk->description ?? '') }}" required 
             class="form-control" />
