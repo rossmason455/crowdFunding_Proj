@@ -24,12 +24,12 @@
        
             
             <h2 class="h5 mt-3">Minimum Investment</h2>
-            <p class="card-text">{{ $min_investment }}</p>
+            <p class="card-text">$ {{ $min_investment }}</p>
 
 
             
             <h2 class="h5 mt-3">Maximum Investment</h2>
-            <p class="card-text">{{ $max_investment }}</p>
+            <p class="card-text">$ {{ $max_investment }}</p>
 
             
             <h2 class="h5 mt-3">Investment Preference</h2>

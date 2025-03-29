@@ -63,6 +63,9 @@ Route::put('/home/{campaign}', [HomeController::class, 'updateCampaign'])->name(
 Route::delete('/home/{campaign}', [HomeController::class, 'destroyCampaign'])->name('home.destroyCampaign');
 
 
+Route::get('/home/showUser/{user}', [HomeController::class, 'showUser'])->name('home.showUser');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

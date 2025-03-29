@@ -47,12 +47,11 @@
     
             
             <h2 class="h5 mt-3">Goal</h2>
-            <p class="card-text">{{ $goal}}</p>
+            <p class="card-text">$ {{ $goal}}</p>
 
   
             
-            <h2 class="h5 mt-3">Progress</h2>
-            <p class="card-text">{{ $progress }}</p>
+         
 
             
             <h2 class="h5 mt-3">Competitive Landscape</h2>
@@ -76,7 +75,7 @@
             <div class="progress">
               
 
-        
+
 
   <div class="progress-bar" role="progressbar" style="width: {{ $progress }}%;" aria-valuenow="{{ $progress }}" aria-valuemin="0" aria-valuemax="100"> {{ $progress }}%</div>
 </div>

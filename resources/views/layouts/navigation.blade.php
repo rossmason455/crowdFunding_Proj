@@ -1,8 +1,13 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
+
+    @if (auth()->user()->role === 'investor' || auth()->user()->role === 'campaigner')
         <a class="navbar-brand" href="{{ route('dashboard') }}">
             {{ __('Dashboard') }}
         </a>
+        @else
+        <h1>crowdFunding</h1>
+        @endif
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
