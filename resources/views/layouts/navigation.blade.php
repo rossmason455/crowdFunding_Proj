@@ -21,7 +21,11 @@
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" 
                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }}
+
+              
             </a>
+
+          
         @else
             <a class="nav-link" href="{{ route('login') }}">Login</a>
             <a class="nav-link" href="{{ route('register') }}">Register</a>
@@ -33,24 +37,38 @@
                         {{ __('Home') }}
                     </x-nav-link>
 
-                    <x-nav-link class="navLinks" :href="route('create')"
-                        :active="request()->routeIs('create')">
-                        {{ __('Create') }}
+                    <x-nav-link class="navLinks" :href="route('home.campaignFilter')"
+                        :active="request()->routeIs('home.campaignFilter')">
+                        {{ __('Search Campaigns') }}
                     </x-nav-link>
+
+
+                    <x-nav-link class="navLinks" :href="route('home.profileFilter')"
+                        :active="request()->routeIs('home.profileFilter')">
+                        {{ __('Search Profiles') }}
+                    </x-nav-link>
+
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                            {{ __('Log Out') }}
+                        </a>
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('profile.edit') }}">
                             {{ __('Profile') }}
                         </a>
                       
+                    
+
+
                     </div>
+
+
+                 
                 </li>
             </ul>
-            <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                            {{ __('Log Out') }}
-                        </a>
+       
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf

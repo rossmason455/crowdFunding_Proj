@@ -46,7 +46,7 @@
 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 g-4">
     @forelse($campaigns as $campaign)
         <div class="col">
-            < href="{{ route('home.show', $campaign) }}">
+            <a href="{{ route('home.show', $campaign) }}">
             <x-campaign-card :title="$campaign->title"
                              :description="$campaign->description"
                              :goal="$campaign->goal"

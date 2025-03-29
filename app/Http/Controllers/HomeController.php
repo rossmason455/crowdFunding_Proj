@@ -300,7 +300,7 @@ class HomeController extends Controller
             'max_investment' => 'required|numeric|min:0|gt:min_investment', 
             'investment_preference' => 'nullable|string|max:255', 
             'investment_approach' => 'nullable|string|max:255', 
-            'preferred_investment_stage' => 'required|in:early_stage,growth_stage,late_stage', 
+            'preferred_investment_stage' => 'required|in:Early Stage,Growth Stage,Late Stage', 
             'investment_interest' => 'nullable|string|max:255', 
         ]);
         
@@ -425,6 +425,10 @@ class HomeController extends Controller
 
     public function storeContribution(Request $request, Campaign $campaign)
     {
+
+        dd($campaign);
+
+
         $request->validate([
             'amount' => 'required|numeric|min:1',
         ]);
@@ -436,7 +440,27 @@ class HomeController extends Controller
             'currency' => 'usd',
         ]);
 
-        $campaign = Campaign::where('user_id', auth()->id())->first();
+        
+        
+   
+
+        $currentProgress = $campaign->progress;
+        dd($currentProgress);
+        $contributionAmount = $request->amount;
+
+        dd( $contributionAmount);
+
+        $newProgress = $currentProgress + ($contributionAmount / $campaign->goal) * 100;
+
+        
+
+        if ($newProgress > 100) {
+            $newProgress = 100;
+        }
+
+
+        $campaign->progress = $newProgress;
+        $campaign->save();
 
         $transaction = Transaction::create([
             'amount' => $request->amount,

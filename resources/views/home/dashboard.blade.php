@@ -57,7 +57,7 @@
                             :risk_profile="$investorProfile->risk_profile" 
                             :min_investment="$investorProfile->min_investment"
                             :max_investment="$investorProfile->max_investment" 
-                            :investment_prefrence="$investorProfile->investment_prefrence"
+                            :investment_preference="$investorProfile->investment_preference"
                             :investment_approach="$investorProfile->investment_approach" 
                             :preferred_investment_stage="$investorProfile->preferred_investment_stage" 
                             :investment_interest="$investorProfile->investment_interest"

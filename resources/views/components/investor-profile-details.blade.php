@@ -2,7 +2,7 @@
    'risk_profile',
    'min_investment',
    'max_investment',
-   'investment_prefrence',
+   'investment_preference',
    'investment_approach',
    'preferred_investment_stage',
    'investment_interest',
@@ -33,7 +33,7 @@
 
             
             <h2 class="h5 mt-3">Investment Preference</h2>
-            <p class="card-text">{{ $investment_prefrence }}</p>
+            <p class="card-text">{{ $investment_preference }}</p>
 
             
             <h2 class="h5 mt-3">Investment Approach</h2>

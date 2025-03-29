@@ -23,9 +23,14 @@
                            
                             :perks="$campaign->perks" />
 
-
+                            @if ($campaign->campaign_type === 'Crowdfunding')
                             <a href="{{ route('contribute', $campaign->id) }}" class="btn btn-primary">
                             Contribute
+                            @else
+                            <a href="{{ route('contribute', $campaign->id) }}" class="btn btn-primary">
+                            Request Contact Details
+
+                            @endif
                             </a>
 
 

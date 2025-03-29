@@ -44,17 +44,17 @@ Route::get('/home/{perk}/editPerk', [HomeController::class, 'editPerk'])->name('
 
 Route::post('/home/storeInvestorProfile', [HomeController::class, 'storeInvestorProfile'])->name('home.storeInvestorProfile'); 
 
-Route::put('/home/{investorProfile}', [HomeController::class, 'updateinvestorProfile'])->name('home.updateInvestorProfile');
+Route::put('/home/{investorProfile}', [HomeController::class, 'updateInvestorProfile'])->name('home.updateInvestorProfile');
 
 Route::get('/home/{investorProfile}/editProfile', [HomeController::class, 'editProfile'])->name('home.editProfile');
 
-Route::get('/home/{investorProfile}', [HomeController::class, 'showProfile'])->name('home.showProfile');
+Route::get('/home/showProfile/{investorProfile}', [HomeController::class, 'showProfile'])->name('home.showProfile');
 
 Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
 
 Route::put('/home/{perk}', [HomeController::class, 'updatePerk'])->name('home.updatePerk');
 
-Route::post('/home/storeContribution', [HomeController::class, 'storeContribution'])->name('home.storeContribution'); 
+Route::post('/home/storeContribution/{campaign}', [HomeController::class, 'storeContribution'])->name('home.storeContribution'); 
 
 Route::put('/home/{campaign}', [HomeController::class, 'updateCampaign'])->name('home.updateCampaign');
                                                                 
