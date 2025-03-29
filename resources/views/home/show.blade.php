@@ -23,20 +23,11 @@
                            
                             :perks="$campaign->perks" />
 
-                            <a href="{{ route('home.edit', $campaign->id) }}" class="btn btn-primary">
-                            Edit campaign
-                            </a>
 
                             <a href="{{ route('contribute', $campaign->id) }}" class="btn btn-primary">
                             Contribute
                             </a>
 
-                            <form action="{{ route('home.destroyCampaign', $campaign->id) }}" method="POST"
-                                onsubmit="return confirm('Are you sure you want to delete this campaign?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-red-600 hover:underline">Delete Campaign</button>
-                            </form>
 
                     </div>
                 </div>

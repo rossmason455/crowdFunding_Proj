@@ -270,7 +270,7 @@ class HomeController extends Controller
         'max_investment' => 'required|numeric|min:0|gt:min_investment', 
         'investment_preference' => 'nullable|string|max:255', 
         'investment_approach' => 'nullable|string|max:255', 
-        'preferred_investment_stage' => 'required|in:early_stage,growth_stage,late_stage', 
+        'preferred_investment_stage' => 'required|in:Early Stage,Growth Stage,Late Stage', 
         'investment_interest' => 'nullable|string|max:255', 
         ]);
         

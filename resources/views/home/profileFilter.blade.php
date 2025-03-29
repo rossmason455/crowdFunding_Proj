@@ -45,7 +45,7 @@
         <div class="col">
             <a href="{{ route('home.showProfile', $profile) }}">
                 <x-investor-profile-card 
-                    :image="optional($profile->user)->image"
+                    :image="$profile->user->image"
                     :risk_profile="$profile->risk_profile"
                     :min_investment="$profile->min_investment"
                     :max_investment="$profile->max_investment"

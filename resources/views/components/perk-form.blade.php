@@ -1,7 +1,7 @@
 @props(['action', 'method'])
 
 
-<form action="{{ route('home.storePerk') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ $action }}" method="POST" enctype="multipart/form-data">
     @csrf
     @if($method === 'PUT' || $method === 'PATCH')
         @method($method)

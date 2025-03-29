@@ -65,9 +65,9 @@
       <div class="mb-3">
         <label for="preferred_investment_stage" class="form-label">Preferred Investment Stage</label>
         <select name="preferred_investment_stage" id="preferred_investment_stage" class="form-control" required>
-            <option value="early_stage" {{ old('preferred_investment_stage', $investor_profile->preferred_investment_stage ?? '') == 'early_stage' ? 'selected' : '' }}>Early Stage</option>
-            <option value="growth_stage" {{ old('preferred_investment_stage', $investor_profile->preferred_investment_stage ?? '') == 'growth_stage' ? 'selected' : '' }}>Growth Stage</option>
-            <option value="late_stage" {{ old('preferred_investment_stage', $investor_profile->preferred_investment_stage ?? '') == 'late_stage' ? 'selected' : '' }}>Late Stage</option>
+            <option value="Early Stage" {{ old('preferred_investment_stage', $investor_profile->preferred_investment_stage ?? '') == 'early_stage' ? 'selected' : '' }}>Early Stage</option>
+            <option value="Growth Stage" {{ old('preferred_investment_stage', $investor_profile->preferred_investment_stage ?? '') == 'growth_stage' ? 'selected' : '' }}>Growth Stage</option>
+            <option value="Late Stage" {{ old('preferred_investment_stage', $investor_profile->preferred_investment_stage ?? '') == 'late_stage' ? 'selected' : '' }}>Late Stage</option>
         </select>
         @error('preferred_investment_stage')
             <div class="text-danger">{{ $message }}</div>
