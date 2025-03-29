@@ -5,6 +5,7 @@ use App\Models\InvestorProfile;
 use App\Models\Perk;
 use App\Models\Campaign;
 use App\Models\Transaction;
+use App\Models\User;
 use Stripe\Stripe;
 use Stripe\PaymentIntent;
 use Stripe\Exception\ApiErrorException;
@@ -474,6 +475,16 @@ class HomeController extends Controller
 
         return redirect()->route('home.index',$campaign->id )->with('success', 'Perk updated successfully!');
     }
+
+
+    public function showUser(User $user)
+    {
+        
+        return view('home.showUser')->with('showUser', $user->id);
+    }
+   
+
+
 
 //
     //public function show(Campaign $campiagn)
