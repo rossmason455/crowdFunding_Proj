@@ -63,13 +63,20 @@
              <h2 class="h5 mt-3">Team</h2>
             <p class="card-text">{{ $team }}</p>
 
-            
+   
             
              <h2 class="h5 mt-3">Use of Funds</h2>
             <p class="card-text">{{ $use_of_funds }}</p>
 
             <h2 class="h5 mt-3">Campaign Type</h2>
             <p class="card-text">{{ $campaign_type }}</p>
+
+
+            <h2 class="h5 mt-3">Progress</h2>
+            <div class="progress">
+              
+  <div class="progress-bar" role="progressbar" style="width: {{ $progress }}%;" aria-valuenow="{{ $progress }}" aria-valuemin="0" aria-valuemax="100"> {{ $progress }}%</div>
+</div>
 
 
             <h2 class="h5 mt-3">Perks</h2>
