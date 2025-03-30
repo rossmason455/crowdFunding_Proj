@@ -2,11 +2,17 @@
 
 @section('content')
 
-<h3 class="font-weight-semibold h3 mb-4">List of Campaigns:</h3>
-<<form method="GET" action="{{ route('home.profileFilter') }}" class="mb-4">
+
+<div class="container">
+
+
+<h3 class="font-weight-semibold h3 mb-4 text-center">Browse Investors on VentureNest</h3>
+<form method="GET" action="{{ route('home.profileFilter') }}" class="mb-4">
     <div class="row">
 
-        <div class="col-md-2">
+    
+
+        <div class="col-md-3">
             <label for="risk_profile" class="form-label">Risk Profile</label>
             <select name="risk_profile" id="risk_profile" class="form-control">
                 <option value="">-- Select Risk Level --</option>
@@ -58,3 +64,4 @@
     @endforelse
 </div>
 @endsection
+</div>

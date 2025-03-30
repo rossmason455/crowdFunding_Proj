@@ -14,23 +14,42 @@
             <div class="container">
                 <div class="card shadow-lg">
                     <div class="card-body">
-                        <x-campaign-crowdfunding-details :image1="$campaign->campaignImages->first()->image ?? ''"
-                           
-                    
-                            :title="$campaign->title" :description="$campaign->description"
-                            :solution="$campaign->solution"   
-                            :image2="$campaign->campaignImages->skip(2)->first()->image ?? ''" :start_date="$campaign->start_date"
-                            :end_date="$campaign->end_date" :goal="$campaign->goal" :progress="$campaign->progress"
-                          
-                            :competitive_landscape="$campaign->competitive_landscape"   :image3="$campaign->campaignImages->skip(1)->first()->image ?? ''"  :team="$campaign->team" :image4="$campaign->campaignImages->skip(3)->first()->image ?? ''"
-                            :use_of_funds="$campaign->use_of_funds" :campaign_type="$campaign->campaign_type"
-
-                            :perks="$campaign->perks" />
+                        
+                        
+                        
+                   
 
                             @if ($campaign->campaign_type === 'Crowdfunding')
+                            <x-campaign-crowdfunding-details :image1="$campaign->campaignImages->first()->image ?? ''"
+                           
+                    
+                           :title="$campaign->title" :description="$campaign->description"
+                           :solution="$campaign->solution"   
+                           :image2="$campaign->campaignImages->skip(2)->first()->image ?? ''" :start_date="$campaign->start_date"
+                           :end_date="$campaign->end_date" :goal="$campaign->goal" :progress="$campaign->progress"
+                         
+                           :competitive_landscape="$campaign->competitive_landscape"   :image3="$campaign->campaignImages->skip(1)->first()->image ?? ''"  :team="$campaign->team" :image4="$campaign->campaignImages->skip(3)->first()->image ?? ''"
+                           :use_of_funds="$campaign->use_of_funds" :campaign_type="$campaign->campaign_type"
+
+                           :perks="$campaign->perks" />
                             <a href="{{ route('contribute', $campaign->id) }}" class="btn btn-primary">
                             Contribute
+
+                            <a href="{{ route('home.edit', $campaign->id) }}" class="btn btn-primary">Edit campaign</a>
                             @else
+                            <x-campaign-investor-details :image1="$campaign->campaignImages->first()->image ?? ''"
+                           
+                    
+                           :title="$campaign->title" :description="$campaign->description"
+                           :solution="$campaign->solution"   
+                           :image2="$campaign->campaignImages->skip(2)->first()->image ?? ''" :start_date="$campaign->start_date"
+                           :end_date="$campaign->end_date" :goal="$campaign->goal" :progress="$campaign->progress"
+                         
+                           :competitive_landscape="$campaign->competitive_landscape"   :image3="$campaign->campaignImages->skip(1)->first()->image ?? ''"  :team="$campaign->team" :image4="$campaign->campaignImages->skip(3)->first()->image ?? ''"
+                           :use_of_funds="$campaign->use_of_funds" :campaign_type="$campaign->campaign_type"
+
+                            />
+                        
                             <a href="{{ route('contribute', $campaign->id) }}" class="btn btn-primary">
                             Request Contact Details
 
