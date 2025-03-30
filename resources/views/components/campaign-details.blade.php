@@ -10,7 +10,10 @@
     'team',
     'use_of_funds',
     'campaign_type',
-    'image',
+    'image1',
+    'image2',
+    'image3',
+    'image4',
     'campaign',
     'perks'
 ])
@@ -18,7 +21,7 @@
 <div class="container mt-4">
     <div class="card shadow-lg">
         <!-- Image -->
-        <img src="{{ asset($image) }}" alt="{{ $title }}" class="card-img-top img-fluid" style="height: 400px; object-fit: cover;">
+        <img src="{{ asset($image1) }}" alt="{{ $title }}" class="card-img-top img-fluid" style="height: 400px; object-fit: cover;">
 
         <div class="card-body">
     
@@ -31,12 +34,13 @@
             <h2 class="h5 mt-3">Description</h2>
             <p class="card-text">{{ $description }}</p>
 
+           
 
             
             <h2 class="h5 mt-3">Solution</h2>
             <p class="card-text">{{ $solution }}</p>
 
-            
+            <img src="{{ asset($image2) }}" alt="{{ $title }}" class="card-img-top img-fluid" style="height: 400px; object-fit: cover;">
             <h2 class="h5 mt-3">Start Date</h2>
             <p class="card-text">{{ $start_date }}</p>
 
@@ -52,17 +56,17 @@
   
             
          
-
-            
+          
             <h2 class="h5 mt-3">Competitive Landscape</h2>
             <p class="card-text">{{ $competitive_landscape }}</p>
 
-
+            <img src="{{ asset($image3) }}" alt="{{ $title }}" class="card-img-top img-fluid" style="height: 400px; object-fit: cover;">
             
+           
              <h2 class="h5 mt-3">Team</h2>
             <p class="card-text">{{ $team }}</p>
 
-   
+            <img src="{{ asset($image4) }}" alt="{{ $title }}" class="card-img-top img-fluid" style="height: 400px; object-fit: cover;">
             
              <h2 class="h5 mt-3">Use of Funds</h2>
             <p class="card-text">{{ $use_of_funds }}</p>

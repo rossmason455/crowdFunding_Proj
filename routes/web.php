@@ -63,7 +63,7 @@ Route::put('/home/{campaign}', [HomeController::class, 'updateCampaign'])->name(
 Route::delete('/home/{campaign}', [HomeController::class, 'destroyCampaign'])->name('home.destroyCampaign');
 
 
-Route::get('/home/showUser/{user}', [HomeController::class, 'showUser'])->name('home.showUser');
+Route::get('/home/showUser', [HomeController::class, 'showUser'])->name('home.showUser');
 
 
 

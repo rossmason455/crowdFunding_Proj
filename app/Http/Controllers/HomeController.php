@@ -479,8 +479,10 @@ class HomeController extends Controller
 
     public function showUser(User $user)
     {
+
+        $user = auth()->user();
         
-        return view('home.showUser')->with('showUser', $user->id);
+        return view('home.showUser', compact('user'));
     }
    
 

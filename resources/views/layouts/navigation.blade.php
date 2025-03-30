@@ -23,14 +23,19 @@
                 <!-- Authentication Links -->
                 <li class="nav-item dropdown">
         @auth
+
+
+        <a href="{{ route('home.showUser', $campaign->id) }}">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" 
                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+
+                
                 {{ Auth::user()->name }}
 
               
             </a>
 
-          
+            </a>
         @else
             <a class="nav-link" href="{{ route('login') }}">Login</a>
             <a class="nav-link" href="{{ route('register') }}">Register</a>
@@ -53,6 +58,11 @@
                         {{ __('Search Profiles') }}
                     </x-nav-link>
 
+                    <a href="{{ route('home.showUser') }}">
+                    <x-nav-link class="navLinks" >
+                        {{ __('See User Profile') }}
+                    </x-nav-link>
+                    </a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
