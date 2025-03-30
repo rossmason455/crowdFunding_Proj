@@ -141,21 +141,78 @@
 </div>
 
 
-    
 <div class="mb-3">
-    <label for="image" class="form-label">Banner Image</label>
-    <input type="file" name="image" id="image" {{ isset($campaign) ? '' : 'required' }} 
+    <label for="image1" class="form-label">Banner Image</label>
+    <input type="file" name="image1" id="image1" {{ isset($campaign) ? '' : 'required' }} 
         class="form-control" />
-    @error('image')
+    @error('image1')
         <div class="text-danger">{{ $message }}</div>
     @enderror
 </div>
 
-@isset($campaign->image_url)
+@isset($campaign->image1)
     <div class="mb-3">
-        <img src="{{ asset($campaign->image) }}" alt="Campaign image" class="img-fluid" />
+        <img src="{{ asset($campaign->image1) }}" alt="Campaign image" class="img-fluid" />
     </div>
 @endisset
+
+
+
+
+
+
+    
+<div class="mb-3">
+    <label for="image2" class="form-label">Competitve Landscape Image</label>
+    <input type="file" name="image2" id="image2" {{ isset($campaign) ? '' : 'required' }} 
+        class="form-control" />
+    @error('image2')
+        <div class="text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+@isset($campaign->image2)
+    <div class="mb-3">
+        <img src="{{ asset($campaign->image2) }}" alt="Campaign image" class="img-fluid" />
+    </div>
+@endisset
+
+
+
+
+
+<div class="mb-3">
+    <label for="image3" class="form-label">Solution Image</label>
+    <input type="file" name="image3" id="image3" {{ isset($campaign) ? '' : 'required' }} 
+        class="form-control" />
+    @error('image3')
+        <div class="text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+@isset($campaign->image3)
+    <div class="mb-3">
+        <img src="{{ asset($campaign->image3) }}" alt="Campaign image" class="img-fluid" />
+    </div>
+@endisset
+
+
+<div class="mb-3">
+    <label for="image4" class="form-label">Team Image</label>
+    <input type="file" name="image4" id="image4" {{ isset($campaign) ? '' : 'required' }} 
+        class="form-control" />
+    @error('image4')
+        <div class="text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+
+@isset($campaign->image4)
+    <div class="mb-3">
+        <img src="{{ asset($campaign->image4) }}" alt="Campaign image" class="img-fluid" />
+    </div>
+@endisset
+
 
 <!-- Submit Button -->
 <div>

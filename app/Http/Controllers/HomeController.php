@@ -142,10 +142,22 @@ class HomeController extends Controller
             Social Impact,Innovation,Startups,Sports,Fashion,Food & Beverage,Travel,Entertainment,Real Estate,Financial Services',
         ]);
         
-        $imageName = null;
-        if ($request->hasFile('image')) {
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images/banner'), $imageName);
+        $folders = [
+            'image1' => 'images/banner',
+            'image2' => 'images/competitive_landscape',
+            'image3' => 'images/solution',
+            'image4' => 'images/team'
+        ];
+
+        $imagePaths = [];
+        foreach ($folders as $key => $folder) {
+            if ($request->hasFile($key)) {
+                $imageName = time() . '_' . $key . '.' . $request->$key->extension();
+                $request->$key->move(public_path($folder), $imageName);
+                $imagePaths[$key] = "$folder/$imageName";
+            } else {
+                $imagePaths[$key] = null;
+            }
         }
        
       
@@ -162,16 +174,21 @@ class HomeController extends Controller
             'use_of_funds' => $request->use_of_funds,
             'campaign_type' => $request->campaign_type,
             'category' => $request->category,
-            'image' => $imageName 
+            'image' => $imagePaths['image1'],
+            'image2' => $imagePaths['image2'],
+            'image3' => $imagePaths['image3'],
+            'image4' => $imagePaths['image4'],
         ]);
 
-        if ($imageName) {
-            $campaign->campaignImages()->create([
-                'image' => 'images/banner/' . $imageName, 
-            ]);
+        foreach ($imagePaths as $path) {
+            if ($path) {
+                $campaign->campaignImages()->create(['image' => $path]);
+            }
         }
 
-        
+
+
+
         return redirect()->route('home.index')->with('success', 'Campaign created successfully!');
     }
 
