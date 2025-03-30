@@ -18,8 +18,8 @@
                            
                     
                             :title="$campaign->title" :description="$campaign->description"
-                          
-                            :solution="$campaign->solution"   :image2="$campaign->campaignImages->skip(2)->first()->image ?? ''" :start_date="$campaign->start_date"
+                            :solution="$campaign->solution"   
+                            :image2="$campaign->campaignImages->skip(2)->first()->image ?? ''" :start_date="$campaign->start_date"
                             :end_date="$campaign->end_date" :goal="$campaign->goal" :progress="$campaign->progress"
                           
                             :competitive_landscape="$campaign->competitive_landscape"   :image3="$campaign->campaignImages->skip(1)->first()->image ?? ''"  :team="$campaign->team" :image4="$campaign->campaignImages->skip(3)->first()->image ?? ''"
