@@ -9,9 +9,11 @@
   <div class="text-center z-10 text-white">
     <h1 class="text-5xl font-bold mb-4">Empower Your Ideas with VentureNest</h1>
     <p class="text-lg mb-12">Join thousands of entrepreneurs and investors making ideas a reality.</p>
+    <div class="p-4"> <a href="{{ route('register') }}" class="btn btn-primary pr-4">Get Started</a></div>
     </div>
 
-    <div> <a href="{{ route('register') }}" class="btn btn-primary">Sign Up</a></div>
+    
+ 
 </section>
 
 
