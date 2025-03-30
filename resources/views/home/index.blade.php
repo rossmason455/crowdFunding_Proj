@@ -2,13 +2,16 @@
 
 @section('content')
 
-<section class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url();">
+
+ 
+<section class="relative flex items-center justify-center" style="background-image: url(images/banner/rizz.jpg); height: 1000px;  background-position: center center; background-repeat: no-repeat; width: 100%; background-size: cover;">
   <div class="absolute inset-0 bg-black"></div>
-  <div class="text-center z-10 ">
-    <h1 class="text-5xl font-bold mb-4 text-black">Empower Your Ideas with VentureNest</h1>
-    <p class="text-lg mb-12 text-black">Join thousands of entrepreneurs and investors making ideas a reality.</p>
+  <div class="text-center z-10 text-white">
+    <h1 class="text-5xl font-bold mb-4">Empower Your Ideas with VentureNest</h1>
+    <p class="text-lg mb-12">Join thousands of entrepreneurs and investors making ideas a reality.</p>
     </div>
 
+    <div> <a href="{{ route('register') }}" class="btn btn-primary">Sign Up</a></div>
 </section>
 
 
