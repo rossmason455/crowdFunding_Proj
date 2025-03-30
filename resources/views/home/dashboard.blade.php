@@ -11,7 +11,8 @@
                 <div class="card shadow-lg">
                     <div class="card-body">
                     @if (auth()->user()->role === 'campaigner' && $campaign)
-                        <x-campaign-details 
+                        <x-campaign-crowdfunding-details 
+                       
                              :image="$campaign->campaignImages[0]->image ?? ''"
                             :title="$campaign->title" 
                             :description="$campaign->description"

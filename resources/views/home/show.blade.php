@@ -14,7 +14,7 @@
             <div class="container">
                 <div class="card shadow-lg">
                     <div class="card-body">
-                        <x-campaign-details :image1="$campaign->campaignImages->first()->image ?? ''"
+                        <x-campaign-crowdfunding-details :image1="$campaign->campaignImages->first()->image ?? ''"
                            
                     
                             :title="$campaign->title" :description="$campaign->description"
@@ -24,7 +24,7 @@
                           
                             :competitive_landscape="$campaign->competitive_landscape"   :image3="$campaign->campaignImages->skip(1)->first()->image ?? ''"  :team="$campaign->team" :image4="$campaign->campaignImages->skip(3)->first()->image ?? ''"
                             :use_of_funds="$campaign->use_of_funds" :campaign_type="$campaign->campaign_type"
-                           
+
                             :perks="$campaign->perks" />
 
                             @if ($campaign->campaign_type === 'Crowdfunding')
