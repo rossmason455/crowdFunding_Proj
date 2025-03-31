@@ -13,7 +13,7 @@
                 <div class="card-body">
                     @if (auth()->user()->role === 'campaigner')
                     <h3 class="fw-semibold mb-3">Add new campaign</h3>
-                    <x-campaign-form :action="route('home.storeCampaign')" :method="'POST'" />
+                    <x-campaign-create-form :action="route('home.storeCampaign')" :method="'POST'" />
 
                     @else
                     <h3 class="fw-semibold mb-3">Enter Investor Profile details</h3>

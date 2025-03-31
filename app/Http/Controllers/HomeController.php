@@ -125,6 +125,9 @@ class HomeController extends Controller
 
     public function storeCampaign(Request $request)
     {
+
+
+       
         //ensures the request has the required fields
         $request->validate([
              
@@ -134,6 +137,7 @@ class HomeController extends Controller
             'solution' => 'nullable|string',
             'start_date' => 'nullable|date',
             'end_date' => 'nullable|date|after_or_equal:start_date',
+            'goal' => 'nullable|numeric|min:0',
             'competitive_landscape' => 'nullable|string',
             'team' => 'nullable|string',
             'use_of_funds' => 'nullable|string',
@@ -169,12 +173,13 @@ class HomeController extends Controller
             'solution' => $request->solution,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
+            'goal' => $request->goal,
             'competitive_landscape' => $request->competitive_landscape,
             'team' => $request->team,
             'use_of_funds' => $request->use_of_funds,
             'campaign_type' => $request->campaign_type,
             'category' => $request->category,
-            'image' => $imagePaths['image1'],
+            'image1' => $imagePaths['image1'],
             'image2' => $imagePaths['image2'],
             'image3' => $imagePaths['image3'],
             'image4' => $imagePaths['image4'],
@@ -195,52 +200,75 @@ class HomeController extends Controller
 
     public function updateCampaign(Request $request, Campaign $campaign)
     {
-        //ensures the request has the required fields
-        $request->validate([
-             
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'progress' => 'nullable|integer|min:0',
-            'solution' => 'nullable|string',
-            'start_date' => 'nullable|date',
-            'end_date' => 'nullable|date|after_or_equal:start_date',
-            'competitive_landscape' => 'nullable|string',
-            'team' => 'nullable|string',
-            'use_of_funds' => 'nullable|string',
-            'campaign_type' => 'required|in:Crowdfunding,Angel Investment',
-            'category' => 'required|in:Funding,Marketing,Research, Development, Education,Technology, Healthcare, Non-profit, Art & Culture, Environment,
-            Social Impact, Innovation, Startups, Sports, Fashion,
-            Food & Beverage, Travel, Entertainment, Real Estate, Financial Services',
-        ]);
-        
-        $imageName = null;
-        if ($request->hasFile('image')) {
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images/banner'), $imageName);
-        }
-      
-        $campaign->update([
-            'user_id' => $campaign->user_id ?: auth()->id(),
-            'title' => $request->title,
-            'description' => $request->description,
-            'progress' => $request->progress,
-            'solution' => $request->solution,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
-            'competitive_landscape' => $request->competitive_landscape,
-            'team' => $request->team,
-            'use_of_funds' => $request->use_of_funds,
-            'campaign_type' => $request->campaign_type,
-            'category' => $request->category,
-            'image' => $imageName 
+
+    
+
+
+ $request->validate([
+   
+  'title' => 'required|string|max:255',
+  'description' => 'nullable|string',
+  'progress' => 'nullable|integer|min:0',
+  'solution' => 'nullable|string',
+  'start_date' => 'nullable|date',
+  'end_date' => 'nullable|date|after_or_equal:start_date',
+  'goal' => 'nullable|numeric|min:0',
+  'competitive_landscape' => 'nullable|string',
+  'team' => 'nullable|string',
+  'use_of_funds' => 'nullable|string',
+  'campaign_type' => 'required|in:Crowdfunding,Angel Investment',
+  'category' => 'required|in:Funding,Marketing,Research, Development, Education,Technology, Healthcare, Non-profit, Art & Culture, Environment,
+      Social Impact, Innovation, Startups, Sports, Fashion,
+      Food & Beverage, Travel, Entertainment, Real Estate, Financial Services',
+  ]);
+  
+  $folders = [
+      'image1' => 'images/banner',
+      'image2' => 'images/competitive_landscape',
+      'image3' => 'images/solution',
+      'image4' => 'images/team'
+  ];
+
+  $imagePaths = [];
+  foreach ($folders as $key => $folder) {
+      if ($request->hasFile($key)) {
+          $imageName = time() . '_' . $key . '.' . $request->$key->extension();
+          $request->$key->move(public_path($folder), $imageName);
+          $imagePaths[$key] = "$folder/$imageName";
+      } else {
+          $imagePaths[$key] = null;
+      }
+  }
+ 
+
+  $campaign->update([
+      'user_id' => $campaign->user_id ?: auth()->id(),
+      'title' => $request->title,
+      'description' => $request->description,
+      'progress' => $request->progress,
+      'solution' => $request->solution,
+      'start_date' => $request->start_date,
+      'end_date' => $request->end_date,
+      'goal' => $request->goal,
+      'competitive_landscape' => $request->competitive_landscape,
+      'team' => $request->team,
+      'use_of_funds' => $request->use_of_funds,
+      'campaign_type' => $request->campaign_type,
+      'category' => $request->category,
+      'image1' => $imagePaths['image1'],
+      'image2' => $imagePaths['image2'],
+            'image3' => $imagePaths['image3'],
+            'image4' => $imagePaths['image4'],
         ]);
 
-        if ($imageName) {
-            $campaign->campaignImages()->create([
-                'image' => 'images/banner/' . $imageName, 
-            ]);
+        foreach ($imagePaths as $path) {
+            if ($path) {
+                $campaign->campaignImages()->create(['image' => $path]);
+            }
         }
-        
+
+      
+
         return redirect()->route('home.index')->with('success', 'Campaign created successfully!');
     }
 
