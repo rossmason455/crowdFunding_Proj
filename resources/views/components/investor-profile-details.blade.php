@@ -6,10 +6,11 @@
    'investment_approach',
    'preferred_investment_stage',
    'investment_interest',
-   'investor_profile'
+   'investor_profile',
+   
 ])
 
-<div class="container mt-4">
+<div class="investor-details container mt-4">
     <div class="card shadow-lg">
    
 
@@ -21,6 +22,9 @@
             <h2 class="h5 mt-3">Risk Profile</h2>
             <p class="card-text">{{ $risk_profile }}</p>
 
+
+            
+           
        
             
             <h2 class="h5 mt-3">Minimum Investment</h2>

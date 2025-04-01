@@ -51,6 +51,12 @@ $primary: #8A2BE2;
     padding-top: $p-8;
 }
 
+.profile-card p{
+    font-family: 'Open Sans';
+    font-size: 16px;
+}
+
+
 .card-img-top{
     height: 300px; 
     object-fit: cover; 
@@ -60,7 +66,8 @@ $primary: #8A2BE2;
 .card .card-title{
     font-family: 'Poppins';
     font-size: 26px;
-    color: rgb(75, 0, 130);
+    color: #8A2BE2;
+    font-weight: 600;
 }
 
 
@@ -72,6 +79,7 @@ $primary: #8A2BE2;
 .card .card-goal{
     font-family: 'Poppins';
     font-size: 20px;
+    font-weight: 600;
 }
 
 .card .card-category{
@@ -101,11 +109,14 @@ $primary: #8A2BE2;
 
 .auth-card .card-body{
     background-color: white;
+    font-size: 16px;
+    font-family: 'Open Sans';
+    font-weight: 600;
 }
 
 
 
-.campaign-section .campaign-section-heading{
+.main-section-heading{
     font-family: 'Poppins';
     font-size: 48px;
     font-weight: bold;
@@ -120,5 +131,96 @@ nav{
     font-family: 'Poppins';
     font-size: 16px;
     font-weight: 600;
+    
+  
 }
 
+.collapse{
+    margin-left: $m-8;
+    margin-right: $m-8;
+}
+
+.nav-link {
+    text-decoration: none !important;
+}
+
+nav .brand-name{
+    font-size: 30px;
+    
+}
+
+.campaign-details .card-title{
+  
+    margin-top: $m-5;
+    font-size: 40px;
+    font-weight: bold;
+    
+
+}
+
+.campaign-details .section-heading{
+    font-size: 30px;
+    font-family: 'Poppins';
+    margin-top: $m-6;
+    
+
+}
+
+.campaign-details p{
+    font-size: 16px;
+    font-family: 'Open Sans';
+}
+
+.campaign-details .point-section{
+    padding: $p-6;
+
+}
+
+.campaign-details .perks-section h3{
+    font-size: 25px;
+    font-family: 'Poppins';
+    margin-top: $m-3;
+    margin-bottom: $m-3;
+}
+
+.campaign-details .perks-section p{
+    font-size: 16px;
+    font-family: 'Open Sans';
+}
+
+
+.campaign-details .top-section{
+  
+    margin-top: $m-5;
+    
+
+}
+
+
+.campaign-details .top-section-heading{
+    font-size: 20px;
+    font-family: 'Poppins';
+    margin-top: $m-6;
+    
+
+}
+
+
+.investor-details h2{
+
+    font-family: 'poppins';
+    font-weight: bold;
+    margin-top: $m-3;
+
+}
+
+.investor-details p{
+
+    font-family: 'Open Sans';
+
+}
+
+.no-entry p{
+    font-size: 16px;
+    font-family: 'Open Sans';
+}

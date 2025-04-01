@@ -18,7 +18,7 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
-                                    <span class="invalid-feedback col-md-4 col-form-label text-md-end" role="alert">
+                                    <span class="invalid-feedback " role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -61,14 +61,19 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="row mb-3">
                             <label for="role" class="form-label">Role</label>
-                            <select id="role" name="role" class="form-select" required>
+                            <select id="role" name="role" class="form-select form-control @error('role') is-invalid @enderror" required>
                                 <option value="crowdfunder" {{ old('role') == 'crowdfunder' ? 'selected' : '' }}>Crowdfunder</option>
                                 <option value="investor" {{ old('role') == 'investor' ? 'selected' : '' }}>Angel Investor</option>
                                 <option value="campaigner" {{ old('role') == 'campaigner' ? 'selected' : '' }}>Campaigner</option>
-                                <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                             </select>
+
+                            @error('role')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+    @enderror
                         </div>
 
                         <div class="row mb-0">

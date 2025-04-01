@@ -19,7 +19,7 @@
 
 <section class="campaign-section">
 <div class="container">
-<h3 class="campaign-section-heading font-weight-semibold h3 mb-4 text-center">Featured Campaigns on VentureNest</h3>
+<h3 class="main-section-heading font-weight-semibold text-center">Featured Campaigns on VentureNest</h3>
 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 g-4">
     @foreach($campaigns as $campaign)
         <div class="col">

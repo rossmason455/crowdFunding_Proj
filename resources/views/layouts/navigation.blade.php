@@ -1,11 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-    <div class="container">
+    <div class="container-fluid">
 
      
-        <x-nav-link class="navLinks" :href="route('dashboard')"
-                        :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+    
 
     
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -14,7 +11,16 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
+
             <ul class="navbar-nav me-auto">
+
+            <x-nav-link class="navLinks" :href="route('dashboard')"
+                        :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
+
+
+
             <x-nav-link class="navLinks" :href="route('home.campaignFilter')"
                         :active="request()->routeIs('home.campaignFilter')">
                         {{ __('Search Campaigns') }}
@@ -26,9 +32,12 @@
                         {{ __('Search Profiles') }}
                     </x-nav-link>
 
+
+                 
+
             </ul>
 
-            <x-nav-link class="navLinks fs-4" :href="route('home.index')"
+            <x-nav-link class="navLinks brand-name col-4" :href="route('home.index')"
                         :active="request()->routeIs('home.index')">
                         {{ __('VentureNest') }}
                     </x-nav-link>
@@ -45,7 +54,7 @@
         @auth
 
 
-        <a href="{{ route('home.showUser') }}">
+     
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" 
                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 
@@ -55,7 +64,13 @@
               
             </a>
 
-            </a>
+            
+
+            <a class="dropdown-item nav-link" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                            {{ __('Log Out') }}
+                        </a>
         @else
         <div class="d-flex align-items-center">
         <x-nav-link class="navLinks" :href="route('login')"
@@ -80,11 +95,7 @@
 
                 
                     </a>
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                            {{ __('Log Out') }}
-                        </a>
+                 
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('profile.edit') }}">
@@ -102,9 +113,7 @@
             </ul>
        
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                     
         
         
         

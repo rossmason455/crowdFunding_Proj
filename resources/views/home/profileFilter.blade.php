@@ -6,7 +6,7 @@
 <div class="container">
 
 
-<h3 class="font-weight-semibold h3 mb-4 text-center">Browse Investors on VentureNest</h3>
+<h3 class="main-section-heading font-weight-semibold text-center">Browse Investors on VentureNest</h3>
 <form method="GET" action="{{ route('home.profileFilter') }}" class="mb-4">
     <div class="row">
 

@@ -10,7 +10,7 @@
 
 
 
-<h3 class="font-weight-semibold h3 mb-4 text-center">Browse Campaigns on VentureNest</h3>
+<h3 class="main-section-heading font-weight-semibold text-center">Browse Campaigns on VentureNest</h3>
 
 
 <form method="GET" action="{{ route('home.campaignFilter') }}" class="mb-4">
@@ -69,6 +69,7 @@
                              :description="$campaign->description"
                              :goal="$campaign->goal"
                              :campaign_type="$campaign->campaign_type"
+                             :category="$campaign->category"
                              :image="$campaign->campaignImages->first()->image ?? ''"/>
                              
             </a>

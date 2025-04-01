@@ -19,6 +19,7 @@
                          
                         
                             :risk_profile="$investorProfile->risk_profile" 
+                           
                             :min_investment="$investorProfile->min_investment"
                             :max_investment="$investorProfile->max_investment" 
                             :investment_preference="$investorProfile->investment_preference"

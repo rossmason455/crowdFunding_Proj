@@ -8,9 +8,12 @@
         <div class="py-5"
             style="background-image: url('{{ asset('images/animal-background.jpg') }}'); background-size: cover; height: 60vh;">
             <div class="container">
+           
                 <div class="card shadow-lg">
                     <div class="card-body">
+                  
                         @if (auth()->user()->role === 'campaigner' && $campaign)
+                        <h3 class="main-section-heading font-weight-semibold text-center">Your Active Campaign</h3>
                             <x-campaign-crowdfunding-details :image1="$campaign->campaignImages->first()->image ?? ''"
                                 :title="$campaign->title" :description="$campaign->description" :solution="$campaign->solution"
                                 :image2="$campaign->campaignImages->skip(2)->first()->image ?? ''"
@@ -39,6 +42,7 @@
 
 
                         @elseif (auth()->user()->role === 'investor' && $investorProfile)
+                        <h3 class="main-section-heading font-weight-semibold text-center">Your Investor Profile</h3>
                             <x-investor-profile-details :risk_profile="$investorProfile->risk_profile"
                                 :min_investment="$investorProfile->min_investment"
                                 :max_investment="$investorProfile->max_investment"
@@ -52,8 +56,14 @@
                                 Profile</a>
 
                         @else
-                            <p>You don't have an active campaign please create one </p>
-                            <a href="{{ route('create') }}" class="btn btn-primary">Create Campaign</a>
+                       
+
+                        <div class="no-entry">
+                        <h3 class="main-section-heading font-weight-semibold text-center">Start Here</h3>
+                            <p  class="font-weight-semibold text-center">You don't have an active campaign or Investor Profile please create one </p>
+                            <a href="{{ route('create') }}" class="btn btn-primary text-center">Create</a>
+                            </div>
+                           
                         @endif
 
                     </div>
@@ -62,4 +72,13 @@
         </div>
 
     </div>
+
+        
+
+
+
+
+
+
+
 @endsection

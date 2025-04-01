@@ -293,6 +293,7 @@ class HomeController extends Controller
     public function showProfile(InvestorProfile $investorProfile)
     {
         
+        
         return view('home.showProfile')->with('investorProfile', $investorProfile);
     }
    

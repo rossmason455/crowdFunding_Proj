@@ -15,16 +15,16 @@
     'image3',
     'image4',
     'campaign',
-    
+    'perks'
 ])
 
 
 
 
 
-<div class="container mt-4 d-flex">
+<div class="campaign-details container mt-4 d-flex">
 
-    <div>
+    <div class="">
 
 
     <div class="card shadow-lg mb-4">
@@ -38,7 +38,7 @@
     <h1 class="card-title text-primary">{{ $title }}</h1>
           
         
-          <h2 class="h5 mt-3">Progress</h2>
+          <h2 class="top-section-heading">Progress</h2>
           <div class="progress">
             
 
@@ -51,13 +51,17 @@
 
 
           <div class="d-flex justify-content-between">
-          <div class="d-flex"> <p class="m-0 p-0">Goal</p>
+          <div class="d-flex"> <div class=" d-flex top-section"><h2 class="m-0 p-0 top-section-heading">Goal</h2>
           <p class="card-text ps-2"> ${{ $goal}}</p></div>
-         
+          </div>
 
-           <div class="d-flex align-items-center"><p class="m-0 p-0">End Date</p>
+
+
+           <div class="d-flex align-items-center">
+           <div class=" d-flex top-section">
+           <h2 class="m-0 p-0 top-section-heading">End Date</h2>
            <p class="card-text ps-2">{{ $end_date }}</p></div>    
-          
+           </div> 
           </div>
   
 
@@ -82,16 +86,16 @@
 
            
 
-            
-            <h2 class="h5 mt-3">Description</h2>
+            <div class="point-section">
+            <h2 class="section-heading">Description</h2>
             <p class="card-text">{{ $description }}</p>
-
+            </div>
            
             
-            
-            <h2 class="h5 mt-3">Solution</h2>
+            <div class="point-section">
+            <h2 class="section-heading">Solution</h2>
             <p class="card-text">{{ $solution }}</p>
-
+            </div>
             <img src="{{ asset($image2) }}" alt="{{ $title }}" class="card-img-top img-fluid" style="height: 400px; object-fit: cover;">
            
     
@@ -100,24 +104,29 @@
   
             
          
-          
-            <h2 class="h5 mt-3">Competitive Landscape</h2>
+            <div class="point-section">
+            <h2 class="section-heading">Competitive Landscape</h2>
             <p class="card-text">{{ $competitive_landscape }}</p>
 
+            </div>
             <img src="{{ asset($image3) }}" alt="{{ $title }}" class="card-img-top img-fluid" style="height: 400px; object-fit: cover;">
             
-           
-             <h2 class="h5 mt-3">Team</h2>
+            <div class="point-section">
+             <h2 class="section-heading">Team</h2>
             <p class="card-text">{{ $team }}</p>
+            </div>
 
             <img src="{{ asset($image4) }}" alt="{{ $title }}" class="card-img-top img-fluid" style="height: 400px; object-fit: cover;">
             
-             <h2 class="h5 mt-3">Use of Funds</h2>
+            <div class="point-section">
+             <h2 class="section-heading">Use of Funds</h2>
             <p class="card-text">{{ $use_of_funds }}</p>
-
-            <h2 class="h5 mt-3">Campaign Type</h2>
+            </div>
+           
+            <div class="point-section">
+            <h2 class="section-heading">Campaign Type</h2>
             <p class="card-text">{{ $campaign_type }}</p>
-
+            </div>
 
            
 
