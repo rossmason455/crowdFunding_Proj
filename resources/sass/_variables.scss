@@ -1,8 +1,14 @@
+
+
+
+
+
 // Body
 $body-bg: #f8fafc;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
+
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -22,4 +28,43 @@ $p-8: 48px;
 .card {
     background-color: #fff;
     min-height: 650px;
+}
+
+.card-img-top{
+    height: 300px; 
+    object-fit: cover; 
+}
+
+
+.card .card-title{
+    font-family: 'Poppins';
+    font-size: 26px;
+    color: rgb(75, 0, 130);
+}
+
+
+.card .card-desc{
+    font-family: 'Open Sans';
+    font-size: 16px;
+}
+
+.card .card-goal{
+    font-family: 'Poppins';
+    font-size: 20px;
+}
+
+.card .card-category{
+    font-family: 'Open Sans';
+    font-size: 18px;
+    font-weight: 600;
+    color:rgb(155, 155, 155);
+}
+
+
+
+.campaign-section .campaign-section-heading{
+    font-family: 'Poppins';
+    font-size: 48px;
+    font-weight: bold;
+    padding-top: $p-3;
 }
