@@ -54,7 +54,7 @@ Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home
 
 Route::put('/home/{perk}', [HomeController::class, 'updatePerk'])->name('home.updatePerk');
 
-Route::post('/home/storeContribution/{campaign}', [HomeController::class, 'storeContribution'])->name('home.storeContribution'); 
+Route::post('/home/storeContribution', [HomeController::class, 'storeContribution'])->name('home.storeContribution'); 
 
 Route::put('/home/{campaign}', [HomeController::class, 'updateCampaign'])->name('home.updateCampaign');
                                                                 

@@ -11,7 +11,7 @@ use Stripe\PaymentIntent;
 use Stripe\Exception\ApiErrorException;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -465,69 +465,23 @@ class HomeController extends Controller
 
 
     public function contribute(Campaign $campaign){
+
+           
+
+
         return view('contribute', compact('campaign'));
     }
 
 
-    public function storeContribution(Request $request, Campaign $campaign)
+
+
+    public function showUser()
     {
+       
+       
+        return view('home.showUser',['user' => auth()->user()]);
 
-        dd($campaign);
-
-
-        $request->validate([
-            'amount' => 'required|numeric|min:1',
-        ]);
-
-        Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
-
-        $paymentIntent = PaymentIntent::create([
-            'amount' => $request->amount * 100,
-            'currency' => 'usd',
-        ]);
-
-        
-        
    
-
-        $currentProgress = $campaign->progress;
-        dd($currentProgress);
-        $contributionAmount = $request->amount;
-
-        dd( $contributionAmount);
-
-        $newProgress = $currentProgress + ($contributionAmount / $campaign->goal) * 100;
-
-        
-
-        if ($newProgress > 100) {
-            $newProgress = 100;
-        }
-
-
-        $campaign->progress = $newProgress;
-        $campaign->save();
-
-        $transaction = Transaction::create([
-            'amount' => $request->amount,
-            'stripe_transaction_id' => $paymentIntent->id,
-            'payment_status' => 'pending',
-            'stripe_payment_method_id' => $paymentIntent->payment_method,
-            'stripe_payment_intent_id' => $paymentIntent->client_secret,
-            'campaign_id' => $campaign->id,
-            'user_id' => auth()->id(),
-        ]);
-
-        return redirect()->route('home.index',$campaign->id )->with('success', 'Perk updated successfully!');
-    }
-
-
-    public function showUser(User $user)
-    {
-
-        $user = auth()->user();
-        
-        return view('home.showUser', compact('user'));
     }
    
 

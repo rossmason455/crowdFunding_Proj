@@ -14,7 +14,7 @@
                     <h3 class="fw-semibold mb-3">Contribute</h3>
                     <x-contribute-form :action="route('home.storeContribution')" :method="'POST'" />
 
-                
+                   
                   
                 </div>
             </div>

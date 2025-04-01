@@ -4,13 +4,13 @@
    'max_investment',
    'investment_prefrence',
    'investment_approach',
-   'image'
+   'name'
 ])
 
 <div class="card shadow-sm rounded-lg overflow-hidden">
 
     <div class="card-body">
-    <img src="{{ asset($image) }}" alt="{{ $risk_profile }}" class="card-img-top">
+    <h3 class="card-risk">{{ $name }}</h3>       
         <h3 class="card-risk">{{ $risk_profile }}</h3>
         <p class="card-min">{{ $min_investment }}</p>
         <p class="card-max">{{ $max_investment }}</p>

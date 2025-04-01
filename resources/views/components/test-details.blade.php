@@ -24,7 +24,7 @@
 
 <div class="container mt-4 d-flex">
 
-    <div class="col-8">
+    <div>
 
 
     <div class="card shadow-lg mb-4">

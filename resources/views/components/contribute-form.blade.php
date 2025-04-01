@@ -1,11 +1,15 @@
+
+
+
 @props(['action', 'method'])
 
-<form action="{{ route('home.storeContribution', $campaign->id) }}" method="POST">
+<form action="{{ route('home.storeContribution') }}" method="POST">
     @csrf
     @if($method === 'PUT' || $method === 'PATCH')
         @method($method)
     @endif
 
+    
 
     <div class="mb-3">
         <label for="amount" class="form-label">Contribution Amount</label>

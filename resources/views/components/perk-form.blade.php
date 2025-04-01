@@ -7,6 +7,7 @@
         @method($method)
     @endif
 
+    
                      
     <div class="mb-3">
         <label for="description" class="form-label">Title</label>

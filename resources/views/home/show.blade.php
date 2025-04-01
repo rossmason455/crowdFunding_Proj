@@ -32,10 +32,9 @@
                            :use_of_funds="$campaign->use_of_funds" :campaign_type="$campaign->campaign_type"
 
                            :perks="$campaign->perks" />
-                            <a href="{{ route('contribute', $campaign->id) }}" class="btn btn-primary">
+                            <a href="{{ route('contribute', $campaign) }}" class="btn btn-primary">
                             Contribute
 
-                            <a href="{{ route('home.edit', $campaign->id) }}" class="btn btn-primary">Edit campaign</a>
                             @else
                             <x-campaign-investor-details :image1="$campaign->campaignImages->first()->image ?? ''"
                            
@@ -50,7 +49,7 @@
 
                             />
                         
-                            <a href="{{ route('contribute', $campaign->id) }}" class="btn btn-primary">
+                            <a href="{{ dd(route('home.storeContribution', $campaign)) }}" class="btn btn-primary">
                             Request Contact Details
 
                             @endif
@@ -64,3 +63,4 @@
        
 </div>
 @endsection
+

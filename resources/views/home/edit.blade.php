@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body">
                     <h3 class="fw-semibold mb-3">Add new campaign</h3>
-                    <x-campaign-form :action="route('home.updateCampaign', $campaign->id)" :method="'PUT'" :campaign="$campaign" buttonText="Update Campaign"/>
+                    <x-campaign-edit-form :action="route('home.updateCampaign', $campaign->id)" :method="'PUT'" :campaign="$campaign" buttonText="Update Campaign"/>
                 </div>
             </div>
         </div>
