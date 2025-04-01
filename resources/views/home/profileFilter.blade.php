@@ -48,15 +48,15 @@
 
 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 g-4">
     @forelse($profiles as $profile)
-        <div class="col">
-            <a href="{{ route('home.showProfile', $profile) }}">
+        <div class="col ">
+            <a class="text-decoration-none" href="{{ route('home.showProfile', $profile) }} ">
                 <x-investor-profile-card 
                     :name="$profile->user->name"
                     :image="$profile->user->image"
                     :risk_profile="$profile->risk_profile"
                     :min_investment="$profile->min_investment"
                     :max_investment="$profile->max_investment"
-                    :investment_prefrence="$profile->investment_prefrence"
+                    :investment_preference="$profile->investment_preference"
                     :investment_approach="$profile->investment_approach"/>
             </a>
         </div>

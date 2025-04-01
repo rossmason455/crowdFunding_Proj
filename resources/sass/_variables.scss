@@ -24,10 +24,31 @@ $p-7: 40px;
 $p-8: 48px;
 
 
+$m-0: 0;
+$m-1: 4px;
+$m-2: 8px;
+$m-3: 12px;
+$m-4: 16px;
+$m-5: 24px;
+$m-6: 32px;
+$m-7: 40px;
+$m-8: 48px;
 
-.card {
+
+$primary: #8A2BE2;
+
+
+
+.campaign-card {
     background-color: #fff;
     min-height: 650px;
+}
+
+
+.profile-card{
+    background-color: #fff;
+    min-height: 300px;
+    padding-top: $p-8;
 }
 
 .card-img-top{
@@ -60,11 +81,44 @@ $p-8: 48px;
     color:rgb(155, 155, 155);
 }
 
+.card .card-name{
+    font-family: 'Poppins';
+    font-size: 26px;
+    color: rgb(75, 0, 130);
+}
+
+.auth-card{
+    border: none;
+}
+
+.auth-card .card-header{
+    background-color: white;
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.auth-card .card-body{
+    background-color: white;
+}
+
 
 
 .campaign-section .campaign-section-heading{
     font-family: 'Poppins';
     font-size: 48px;
     font-weight: bold;
-    padding-top: $p-3;
+    margin-top:$m-7;
+    margin-bottom: $m-7;
 }
+
+
+
+nav{
+    min-height: 100px;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 600;
+}
+

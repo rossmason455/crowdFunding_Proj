@@ -7,7 +7,7 @@
     'category'
 ])
 
-<div class="card shadow-sm rounded-lg overflow-hidden h-100 d-flex flex-column">
+<div class="card campaign-card shadow-sm rounded-lg overflow-hidden h-100 d-flex flex-column">
     <img src="{{ asset($image) }}" alt="{{ $title }}" class="card-img-top">
     <div class="card-body">
         <h3 class="card-title ">{{ $title }}</h3>
