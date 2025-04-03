@@ -64,13 +64,16 @@
               
             </a>
 
-            
+            <form id="logout-form" method="POST" action="{{ route('logout') }}">
+            @csrf 
+
 
             <a class="dropdown-item nav-link" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                             {{ __('Log Out') }}
                         </a>
+                        </form>
         @else
         <div class="d-flex align-items-center">
         <x-nav-link class="navLinks" :href="route('login')"
@@ -115,7 +118,9 @@
 
                      
         
-        
+          
+
+                   
         
         </div>
     </div>

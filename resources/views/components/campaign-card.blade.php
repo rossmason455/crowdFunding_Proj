@@ -14,6 +14,6 @@
     
         <p class="card-desc">{{ $description }}</p>
         <p class="card-goal">Goal: {{ $goal }}</p>
-        <p class="card-category">{{ $category }}</p>
+        <p class="card-category">{{ $category}}</p>
     </div>
 </div>

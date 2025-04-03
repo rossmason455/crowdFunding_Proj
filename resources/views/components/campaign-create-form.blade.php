@@ -1,12 +1,13 @@
 @props(['action', 'method'])
 
 
-<form action="{{ $action }}" method="POST" enctype="multipart/form-data">
+<form action="{{ $action }}" method="POST" enctype="multipart/form-data" class="form">
     @csrf
     @if($method === 'PUT' || $method === 'PATCH')
         @method($method)
     @endif
 
+  
    
     <div class="mb-3">
         <label for="title" class="form-label">Title</label>
@@ -220,4 +221,5 @@
         {{ isset($campaign) ? 'Update Campaign' : 'Add Campaign' }}
     </button>
 </div>
+
 </form>

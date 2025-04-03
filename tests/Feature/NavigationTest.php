@@ -34,5 +34,18 @@ class NavigationTest extends TestCase
 
     $response = $this->actingAs($user)->get(route('dashboard')); 
     $response->assertStatus(200); 
-    }
+    
+    $response = $this->actingAs($user)->get(route('home.profileFilter')); 
+    $response->assertStatus(200); 
+
+
+    $response = $this->actingAs($user)->get(route('home.campaignFilter')); 
+    $response->assertStatus(200); 
+
 }
+
+
+
+ 
+    }
+

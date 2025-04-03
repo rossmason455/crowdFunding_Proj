@@ -146,7 +146,13 @@ nav{
 
 nav .brand-name{
     font-size: 30px;
+    color: #8A2BE2 !important;
+    font-weight: bold !important;
     
+}
+
+.text-secondary{
+    color: #8A2BE2;
 }
 
 .campaign-details .card-title{
@@ -223,4 +229,21 @@ nav .brand-name{
 .no-entry p{
     font-size: 16px;
     font-family: 'Open Sans';
+}
+
+
+.form label{
+    font-size: 16px;
+    font-family: 'Open Sans';
+    font-weight: bold;
+}
+
+.form input{
+    font-size: 16px;
+    font-family: 'Open Sans';
+}
+
+.form-heading{
+    font-size: 26px;
+    font-family: 'Poppins';
 }

@@ -14,6 +14,7 @@
                   
                         @if (auth()->user()->role === 'campaigner' && $campaign)
                         <h3 class="main-section-heading font-weight-semibold text-center">Your Active Campaign</h3>
+                       
                             <x-campaign-crowdfunding-details :image1="$campaign->campaignImages->first()->image ?? ''"
                                 :title="$campaign->title" :description="$campaign->description" :solution="$campaign->solution"
                                 :image2="$campaign->campaignImages->skip(2)->first()->image ?? ''"
@@ -38,6 +39,9 @@
                                 <button type="submit" class="text-red-600 hover:underline">Delete Campaign</button>
                             </form>
 
+                          
+                                
+
 
 
 
@@ -61,7 +65,7 @@
                         <div class="no-entry">
                         <h3 class="main-section-heading font-weight-semibold text-center">Start Here</h3>
                             <p  class="font-weight-semibold text-center">You don't have an active campaign or Investor Profile please create one </p>
-                            <a href="{{ route('create') }}" class="btn btn-primary text-center">Create</a>
+                            <a href="{{ route('create') }}" class="btn btn-primary">Create</a>
                             </div>
                            
                         @endif
