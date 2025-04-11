@@ -141,7 +141,7 @@
     </div>
    
 
-<div class="perks-section container d-flex flex-column">
+<div class="perks-section container d-flex flex-column col-4">
     <div class="card shadow-lg p-4">
     <h1 class="section-heading">Perks</h1>
 @foreach($perks as $perk)

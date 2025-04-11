@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FilterController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -9,61 +10,70 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home/dashboard', [DashboardController::class, 'dashboard'])
+Route::get('/userDashboard/dashboard', [DashboardController::class, 'dashboard'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
     Route::get('home', [HomeController::class, 'index'])->name('home.index'); 
 
     
-    Route::get('home/profileFilter', [HomeController::class, 'profileFilter'])->name('home.profileFilter'); 
+    Route::get('filter/profileFilter', [FilterController::class, 'profileFilter'])->name('filter.profileFilter'); 
 
-    Route::get('home/campaignFilter', [HomeController::class, 'campaignFilter'])->name('home.campaignFilter'); 
-
-Route::get('/home/{campaign}', [HomeController::class, 'show'])->name('home.show');
+    Route::get('filter/campaignFilter', [FilterController::class, 'campaignFilter'])->name('filter.campaignFilter'); 
 
 
-Route::get('create', [HomeController::class, 'create'])->name('create');
 
 
-Route::get('createPerk', [HomeController::class, 'createPerk'])->name('createPerk');
+
+
+
+Route::get('createPerk', [DashboardController::class, 'createPerk'])->name('createPerk');
 
 
 
 Route::get('contribute/{campaign}', [HomeController::class, 'contribute'])->name('contribute');
 
 
-Route::post('/home/storeCampaign', [HomeController::class, 'storeCampaign'])->name('home.storeCampaign'); 
 
-Route::post('/home/storePerk', [HomeController::class, 'storePerk'])->name('home.storePerk'); 
+Route::post('/userDashboard/storePerk', [DashboardController::class, 'storePerk'])->name('userDashboard.storePerk');
+
+Route::get('/userDashboard/{perk}/editPerk', [DashboardController::class, 'editPerk'])->name('userDashboard.editPerk'); 
+
+Route::put('/userDashboard/{perk}', [DashboardController::class, 'updatePerk'])->name('userDashboard.updatePerk');
+
+
+
+Route::get('/filter/showProfile/{investorProfile}', [FilterController::class, 'showProfile'])->name('filter.showProfile');
+
+Route::post('/userDashboard/storeInvestorProfile', [DashboardController::class, 'storeInvestorProfile'])->name('userDashboard.storeInvestorProfile'); 
+
+Route::put('/userDashboard/{investorProfile}', [DashboardController::class, 'updateInvestorProfile'])->name('userDashboard.updateInvestorProfile');
+
+Route::get('/userDashboard/{investorProfile}/editProfile', [DashboardController::class, 'editInvestorProfile'])->name('userDashboard.editProfile');
 
 
 
 
-Route::get('/home/{perk}/editPerk', [HomeController::class, 'editPerk'])->name('home.editPerk'); 
 
-Route::post('/home/storeInvestorProfile', [HomeController::class, 'storeInvestorProfile'])->name('home.storeInvestorProfile'); 
 
-Route::put('/home/{investorProfile}', [HomeController::class, 'updateInvestorProfile'])->name('home.updateInvestorProfile');
-
-Route::get('/home/{investorProfile}/editProfile', [HomeController::class, 'editProfile'])->name('home.editProfile');
-
-Route::get('/home/showProfile/{investorProfile}', [HomeController::class, 'showProfile'])->name('home.showProfile');
-
-Route::get('/home/{campaign}/edit', [HomeController::class, 'edit'])->name('home.edit');
-
-Route::put('/home/{perk}', [HomeController::class, 'updatePerk'])->name('home.updatePerk');
 
 Route::post('/home/storeContribution', [HomeController::class, 'storeContribution'])->name('home.storeContribution'); 
 
-Route::put('/home/{campaign}', [HomeController::class, 'updateCampaign'])->name('home.updateCampaign');
+Route::get('/home/{campaign}', [HomeController::class, 'showCampaign'])->name('home.showCampaign');
+
+Route::get('create', [DashboardController::class, 'create'])->name('create');
+
+Route::post('/userDashboard/storeCampaign', [DashboardController::class, 'storeCampaign'])->name('userDashboard.storeCampaign'); 
+
+Route::get('/userDashboard/{campaign}/edit', [DashboardController::class, 'editCampaign'])->name('userDashboard.editCampaign');
+
+Route::put('/userDashboard/{campaign}', [DashboardController::class, 'updateCampaign'])->name('userDashboard.updateCampaign');
                                                                 
 
+Route::delete('/userDashboard/{campaign}', [DashboardController::class, 'destroyCampaign'])->name('userDashboard.destroyCampaign');
 
-Route::delete('/home/{campaign}', [HomeController::class, 'destroyCampaign'])->name('home.destroyCampaign');
 
 
-Route::get('/home/showUser', [HomeController::class, 'showUser'])->name('home.showUser');
 
 
 

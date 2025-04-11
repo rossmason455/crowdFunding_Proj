@@ -13,7 +13,7 @@
         <h3 class="card-title ">{{ $title }}</h3>
     
         <p class="card-desc">{{ $description }}</p>
-        <p class="card-goal">Goal: {{ $goal }}</p>
+        <p class="card-goal">Goal: ${{ $goal }}</p>
         <p class="card-category">{{ $category}}</p>
     </div>
 </div>

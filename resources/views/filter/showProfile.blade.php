@@ -28,6 +28,8 @@
                             :investment_interest="$investorProfile->investment_interest"
                             :competitive_landscape="$investorProfile->competitive_landscape" 
                             />
+                            <a href="#" class="btn btn-primary">
+                                Request Contact Details </a>
 
 
                     </div>

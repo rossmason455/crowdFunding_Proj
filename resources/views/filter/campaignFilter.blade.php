@@ -13,7 +13,7 @@
 <h3 class="main-section-heading font-weight-semibold text-center">Browse Campaigns on VentureNest</h3>
 
 
-<form method="GET" action="{{ route('home.campaignFilter') }}" class="mb-4">
+<form method="GET" action="{{ route('filter.campaignFilter') }}" class="mb-4">
 
 
 
@@ -52,7 +52,7 @@
 
         <div class="col-md-3 d-flex align-items-end">
             <button type="submit" class="btn btn-primary">Filter</button>
-            <a href="{{ route('home.campaignFilter') }}" class="btn btn-secondary ms-2">Reset</a>
+            <a href="{{ route('filter.campaignFilter') }}" class="btn btn-secondary ms-2">Reset</a>
         </div>
  
     
@@ -64,7 +64,7 @@
 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 g-4">
     @forelse($campaigns as $campaign)
         <div class="col">
-            <a class="text-decoration-none "    href="{{ route('home.show', $campaign) }}">
+            <a class="text-decoration-none "    href="{{ route('home.showCampaign', $campaign) }}">
             <x-campaign-card :title="$campaign->title"
                              :description="$campaign->description"
                              :goal="$campaign->goal"

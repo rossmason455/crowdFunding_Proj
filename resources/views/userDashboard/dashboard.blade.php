@@ -28,15 +28,15 @@
 
 
 
-                            <a href="{{ route('home.edit', $campaign->id) }}" class="btn btn-primary">Edit campaign</a>
+                            <a href="{{ route('userDashboard.editCampaign', $campaign->id) }}" class="btn btn-primary">Edit campaign</a>
 
                             <a href="{{ route('createPerk', $campaign->id) }}" class="btn btn-primary">Add Perk</a>
 
-                            <form action="{{ route('home.destroyCampaign', $campaign->id) }}" method="POST"
+                            <form action="{{ route('userDashboard.destroyCampaign', $campaign->id) }}" method="POST"
                                 onsubmit="return confirm('Are you sure you want to delete this campaign?');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="text-red-600 hover:underline">Delete Campaign</button>
+                                <button type="submit" class="btn btn-danger">Delete Campaign</button>
                             </form>
 
                           
@@ -56,7 +56,7 @@
                                 :investment_interest="$investorProfile->investment_interest"
                                 :competitive_landscape="$investorProfile->competitive_landscape" />
 
-                            <a href="{{ route('home.editProfile', $investorProfile->id) }}" class="btn btn-primary">Edit
+                            <a href="{{ route('userDashboard.editProfile', $investorProfile->id) }}" class="btn btn-primary">Edit
                                 Profile</a>
 
                         @else

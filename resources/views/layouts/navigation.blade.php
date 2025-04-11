@@ -14,6 +14,10 @@
 
             <ul class="navbar-nav me-auto">
 
+
+            @if(auth()->check() && (auth()->user()->role === 'investor' || auth()->user()->role === 'campaigner'))
+            
+           
             <x-nav-link class="navLinks" :href="route('dashboard')"
                         :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
@@ -21,23 +25,35 @@
 
 
 
-            <x-nav-link class="navLinks" :href="route('home.campaignFilter')"
-                        :active="request()->routeIs('home.campaignFilter')">
+            <x-nav-link class="navLinks" :href="route('filter.campaignFilter')"
+                        :active="request()->routeIs('filter.campaignFilter')">
                         {{ __('Search Campaigns') }}
                     </x-nav-link>
 
 
-                    <x-nav-link class="navLinks" :href="route('home.profileFilter')"
-                        :active="request()->routeIs('home.profileFilter')">
+                    <x-nav-link class="navLinks" :href="route('filter.profileFilter')"
+                        :active="request()->routeIs('filter.profileFilter')">
                         {{ __('Search Profiles') }}
                     </x-nav-link>
 
 
-                 
+                 @else
 
+                 <x-nav-link class="navLinks" :href="route('filter.campaignFilter')"
+                        :active="request()->routeIs('filter.campaignFilter')">
+                        {{ __('Search Campaigns') }}
+                    </x-nav-link>
+
+
+                    <x-nav-link class="navLinks" :href="route('filter.profileFilter')"
+                        :active="request()->routeIs('filter.profileFilter')">
+                        {{ __('Search Profiles') }}
+                    </x-nav-link>
+
+                 @endif
             </ul>
 
-            <x-nav-link class="navLinks brand-name col-4" :href="route('home.index')"
+            <x-nav-link class="navLinks brand-name col-2" :href="route('home.index')"
                         :active="request()->routeIs('home.index')">
                         {{ __('VentureNest') }}
                     </x-nav-link>

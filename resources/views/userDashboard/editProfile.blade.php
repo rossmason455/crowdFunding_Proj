@@ -8,7 +8,7 @@
               
                 <div class="card-body">
                     <h3 class="fw-semibold mb-3 form-heading">Update Profile</h3>
-                    <x-investor-profile-form :action="route('home.updateInvestorProfile', $investorProfile->id)" :method="'PUT'" :campaign="$investorProfile" buttonText="Update Profile"/>
+                    <x-investor-profile-form :action="route('userDashboard.updateInvestorProfile', $investorProfile->id)" :method="'PUT'" :campaign="$investorProfile" buttonText="Update Profile"/>
                 </div>
             </div>
         </div>

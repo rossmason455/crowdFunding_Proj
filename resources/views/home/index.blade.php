@@ -3,17 +3,27 @@
 @section('content')
 
 
- 
-<section class="landing-section" style="background-image: url(images/banner/rizz.jpg); height: 1000px;  background-position: center center; background-repeat: no-repeat; width: 100%; background-size: cover;">
+<section class="landing-section relative text-white" style="background-image: url(images/banner/rizz.jpg); height: 1000px; background-position: center center; background-repeat: no-repeat; width: 100%; background-size: cover; display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem;">
 
-  <div class="landing-section-text justify-content-end text-center z-10 text-white">
-    <h1 class="text-5xl font-bold">Empower Your Ideas with VentureNest</h1>
-    <p class="text-lg">Join thousands of entrepreneurs and investors making ideas a reality.</p>
-   
+  <!-- Dark overlay -->
+  <div class= "dark-overlay"></div>
+
+  <!-- Content above overlay -->
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%; position: relative; z-index: 2;">
+    
+    <!-- Bottom-left text -->
+    <div class="landing-section-text max-w-xl">
+      <h1 class="text-5xl font-bold">Empower Your Ideas with VentureNest</h1>
+      <p class="text-lg mt-2">Join thousands of entrepreneurs and investors making ideas a reality.</p>
     </div>
 
-    <div class="landing-section-button"> <a href="{{ route('register') }}" class="btn btn-primary">Get Started</a></div>
- 
+    <!-- Bottom-right button -->
+    <div class="landing-section-button">
+      <a href="{{ route('register') }}" class="btn btn-primary">Get Started</a>
+    </div>
+
+  </div>
+
 </section>
 
 
@@ -24,7 +34,7 @@
     @foreach($campaigns as $campaign)
         <div class="col">
 
-        <a class="text-decoration-none" href="{{ route('home.show', $campaign) }}">
+        <a class="text-decoration-none" href="{{ route('home.showCampaign', $campaign) }}">
             <x-campaign-card :title="$campaign->title"
                              :description="$campaign->description"
                              :goal="$campaign->goal"

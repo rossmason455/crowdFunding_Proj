@@ -7,7 +7,7 @@
 
 
 <h3 class="main-section-heading font-weight-semibold text-center">Browse Investors on VentureNest</h3>
-<form method="GET" action="{{ route('home.profileFilter') }}" class="mb-4">
+<form method="GET" action="{{ route('filter.profileFilter') }}" class="mb-4">
     <div class="row">
 
     
@@ -37,7 +37,7 @@
 
         <div class="col-md-3 d-flex align-items-end">
             <button type="submit" class="btn btn-primary">Filter</button>
-            <a href="{{ route('home.profileFilter') }}" class="btn btn-secondary ms-2">Reset</a>
+            <a href="{{ route('filter.profileFilter') }}" class="btn btn-secondary ms-2">Reset</a>
         </div>
  
     
@@ -49,7 +49,7 @@
 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 g-4">
     @forelse($profiles as $profile)
         <div class="col ">
-            <a class="text-decoration-none" href="{{ route('home.showProfile', $profile) }} ">
+            <a class="text-decoration-none" href="{{ route('filter.showProfile', $profile) }} ">
                 <x-investor-profile-card 
                     :name="$profile->user->name"
                     :image="$profile->user->image"

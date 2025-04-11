@@ -30,11 +30,13 @@
                                 :use_of_funds="$campaign->use_of_funds" :campaign_type="$campaign->campaign_type"
                                 :perks="$campaign->perks" />
 
-
+                            
 
                             <a href="{{ route('contribute', $campaign) }}" class="btn btn-primary">
                                 Contribute
+                            </a>
 
+                                
                         @else
                             <x-campaign-investor-details :image1="$campaign->campaignImages->first()->image ?? ''"
                                 :title="$campaign->title" :description="$campaign->description"
@@ -47,7 +49,11 @@
                                 :use_of_funds="$campaign->use_of_funds" :campaign_type="$campaign->campaign_type" />
 
                                 <a href="#" class="btn btn-primary">
-                                Request Contact Details
+                                Request Contact Details </a>
+
+
+                            
+                        
 
                         @endif
                         </a>
