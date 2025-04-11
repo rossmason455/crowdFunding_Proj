@@ -17,50 +17,44 @@ class HomeController extends Controller
 {
     public function index()
     {
-  
+
         $campaigns = Campaign::with('campaignImages')->get();
 
-       
+
         return view('home.index', compact('campaigns'));
     }
 
 
 
-   
+
 
 
     public function showCampaign(Campaign $campaign)
     {
         $campaign = Campaign::with('perks')->findOrFail($campaign->id);
-        
-       
+
+
 
 
         return view('home.showCampaign', compact('campaign'));
     }
 
-    
-    
-
-
-    /////////////////////////////////////////////////////////
-    ////////////// CRUD PROFLIE
-    ////////////////////////////////////////////////////////
-
-   
-
-   
-
-   
 
 
 
 
-  
 
-    public function contribute(Campaign $campaign){
 
-           
+
+
+
+
+
+
+    public function contribute(Campaign $campaign)
+    {
+
+
 
 
         return view('contribute', compact('campaign'));
@@ -71,25 +65,16 @@ class HomeController extends Controller
 
     public function showUser()
     {
-       
-       
-        return view('home.showUser',['user' => auth()->user()]);
 
-   
+
+        return view('home.showUser', ['user' => auth()->user()]);
+
+
     }
-   
 
 
 
-//
-    //public function show(Campaign $campiagn)
-    //{
-//
-//
-    //    return view('campaigns.show')->with('campaign', $campiagn);
-    //}
-//
-//
+
 
 
 
